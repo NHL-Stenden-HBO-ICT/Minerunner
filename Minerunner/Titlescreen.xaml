@@ -9,10 +9,10 @@
       Title="Titlescreen">
 
     <Grid Background="White">
-        <Button Content="START" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click" FontWeight="Bold" FontSize="14"/>
-        <Button Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click" FontSize="14" FontWeight="Bold"/>
-        <Button Content="INSTELLINGEN" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click" FontWeight="Bold" FontSize="14"/>
-        <Label Content="MINERUNNER" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Height="35" Width="275" FontFamily="Arial Black" FontSize="26" HorizontalContentAlignment="Center"/>
-        <Button Content="X" HorizontalAlignment="Left" Background="Red" Foreground="White" Margin="770,10,0,0" VerticalAlignment="Top" Height="20" Width="20" Click="Exit_Click"/>
+        <Button Content="START" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Height="75" Width="300" Click="Start_Click" FontWeight="Bold" FontSize="14"/>
+        <Button Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Height="75" Width="300" Click="Start_Click" FontSize="14" FontWeight="Bold"/>
+        <Button Content="INSTELLINGEN" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Height="75" Width="300" Click="Start_Click" FontWeight="Bold" FontSize="14"/>
+        <Label Content="MINERUNNER" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Height="70" Width="475" FontFamily="Arial Black" FontSize="60" HorizontalContentAlignment="Center"/>
+        <Button Content="X" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" Width="20" Click="Exit_Click"/>
     </Grid>
 </Page>
