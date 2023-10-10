@@ -27,7 +27,7 @@ namespace Minerunner
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Onni hier yo");
+            
         }
     }
 }
