@@ -24,5 +24,10 @@ namespace Minerunner
         {
             InitializeComponent();
         }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
