@@ -30,9 +30,9 @@ namespace Minerunner
             this.NavigationService.Navigate(new Gamescreen());
         }
 
-        private void Settings_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Settings());
+            Application.Current.Shutdown();
         }
     }
 }
