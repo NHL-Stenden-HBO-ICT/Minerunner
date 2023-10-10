@@ -8,7 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Titlescreen">
 
-    <Grid>
-        <Button Content="Start" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" Height="55" Width="256" Click="Start_Click"/>
+    <Grid Background="White">
+        <Button Content="Start" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click"/>
+        <Button Content="Highscore" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click"/>
+        <Button Content="Instellingen" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click"/>
+        <Label Content="Minerunner" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Height="35" Width="275" FontFamily="Arial Black" FontSize="20" HorizontalContentAlignment="Center"/>
     </Grid>
 </Page>
