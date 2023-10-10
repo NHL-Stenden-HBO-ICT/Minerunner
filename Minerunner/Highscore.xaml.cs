@@ -16,28 +16,18 @@ using System.Windows.Shapes;
 namespace Minerunner
 {
     /// <summary>
-    /// Interaction logic for Titlescreen.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Titlescreen : Page
+    public partial class Highscore : Page
     {
-        public Titlescreen()
+        public Highscore()
         {
             InitializeComponent();
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
+        private void Highscore_Terug(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Highscore());
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Settings());
+            this.NavigationService.GoBack();
         }
     }
 }
