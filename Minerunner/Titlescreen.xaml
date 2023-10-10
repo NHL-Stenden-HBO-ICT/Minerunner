@@ -9,9 +9,9 @@
       Title="Titlescreen">
 
     <Grid Background="White">
-        <Button Content="Start" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click"/>
-        <Button Content="Highscore" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click"/>
-        <Button Content="Instellingen" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click"/>
-        <Label Content="Minerunner" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Height="35" Width="275" FontFamily="Arial Black" FontSize="20" HorizontalContentAlignment="Center"/>
+        <Button Content="START" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click" FontWeight="Bold" FontSize="14"/>
+        <Button Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click" FontSize="14" FontWeight="Bold"/>
+        <Button Content="INSTELLINGEN" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="35" Width="275" Click="Start_Click" FontWeight="Bold" FontSize="14"/>
+        <Label Content="MINERUNNER" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Height="35" Width="275" FontFamily="Arial Black" FontSize="26" HorizontalContentAlignment="Center"/>
     </Grid>
 </Page>
