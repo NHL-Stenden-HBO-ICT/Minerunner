@@ -1,0 +1,20 @@
+﻿<Page x:Class="Minerunner.GameOverPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Minerunner"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="gameover">
+
+
+    <Grid Background="White">
+
+        <Label Name="gameover_TXT" Content="Game over" FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" ></Label>
+        <Label Name="Highscore_TXT" Content="Highscore: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,113,0,0" ></Label>
+        <Button Name="Replay_BTN" Content="Replay" FontSize="15" HorizontalAlignment="Center" Width="150" Height="50" FontWeight="Bold" Click="Replay_BTN_Click"></Button>
+        <Button Name="Backtomainmenu_BTN" Content="Back to main menu" FontSize="15" HorizontalAlignment="Center"  Width="150" Height="50" Margin="0,290,0,110" FontWeight="Bold" Click="Backtomainmenu_BTN_Click"></Button>
+
+    </Grid>
+</Page>
