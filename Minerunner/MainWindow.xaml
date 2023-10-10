@@ -6,8 +6,5 @@
         xmlns:local="clr-namespace:Minerunner"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Start_Click"/>
-
-    </Grid>
+    <Frame Name="mainFrame" Source="Titlescreen.xaml" NavigationUIVisibility="Hidden" />
 </Window>
