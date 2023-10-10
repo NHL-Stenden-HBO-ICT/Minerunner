@@ -16,23 +16,18 @@ using System.Windows.Shapes;
 namespace Minerunner
 {
     /// <summary>
-    /// Interaction logic for Titlescreen.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Titlescreen : Page
+    public partial class Settings : Page
     {
-        public Titlescreen()
+        public Settings()
         {
             InitializeComponent();
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Gamescreen());
-        }
-
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Settings());
+            this.NavigationService.GoBack();
         }
     }
 }
