@@ -34,5 +34,10 @@ namespace Minerunner
         {
             Application.Current.Shutdown();
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Settings());
+        }
     }
 }
