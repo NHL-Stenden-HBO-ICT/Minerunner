@@ -9,6 +9,6 @@
       Title="Gamescreen">
 
     <Canvas Background="White">
-        <Canvas x:Name="ChunkCanvas" />
+        <Canvas x:Name="ChunkCanvas" Canvas.Left="0" Width="800" />
     </Canvas>
 </Page>

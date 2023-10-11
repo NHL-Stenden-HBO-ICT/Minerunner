@@ -22,36 +22,17 @@ namespace Minerunner
     public partial class Gamescreen : Page
     {
         private DispatcherTimer updateTimer = new DispatcherTimer();
-
-        private int[,] testChunk = {
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 3, 0, 3, 0, 3, 3, 3, 0, 3, 0, 0, 0, 0, 0, 0 },
-            { 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0 },
-            { 0, 3, 3, 3, 0, 3, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0 },
-            { 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0 },
-            { 0, 3, 0, 3, 0, 3, 3, 3, 0, 3, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-            { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
-            { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
-        };
+        private Floor floor;
 
         public Gamescreen()
         {
             InitializeComponent();
 
-            updateTimer.Interval = TimeSpan.FromMilliseconds(16);
+            updateTimer.Interval = TimeSpan.FromMilliseconds(20);
             updateTimer.Tick += OnUpdate;
             updateTimer.Start();
 
-            RenderChunk(testChunk);
+            floor = new Floor(ChunkCanvas);
         }
 
         private Brush RandomColor()
@@ -61,45 +42,9 @@ namespace Minerunner
                               (byte)r.Next(1, 255), (byte)r.Next(1, 233)));
         }
 
-        private void RenderChunk(int[,] chunkData)
-        {
-            for (int i = 0; i < 256; i++)
-            {
-                int x = i % 16;
-                int y = i / 16;
-
-                Rectangle rect = new Rectangle();
-                rect.Width = rect.Height = 20;
-
-                switch (chunkData[y, x])
-                {
-                    case 0:
-                        rect.Fill = new SolidColorBrush(Color.FromRgb(49, 189, 175));
-                        break;
-
-                    case 1:
-                        rect.Fill = new SolidColorBrush(Color.FromRgb(49, 189, 79));
-                        break;
-
-                    case 2:
-                        rect.Fill = new SolidColorBrush(Color.FromRgb(94, 40, 16));
-                        break;
-
-                    case 3:
-                        rect.Fill = new SolidColorBrush(Color.FromRgb(222, 52, 235));
-                        break;
-                }
-
-                //rect.Fill = RandomColor();
-
-                ChunkCanvas.Children.Add(rect);
-                Canvas.SetLeft(rect, x * rect.Width);
-                Canvas.SetTop(rect, y * rect.Height);
-            }
-        }
-
         private void OnUpdate(object? sender, EventArgs e)
         {
+            floor.Scroll();
         }
     }
 }
