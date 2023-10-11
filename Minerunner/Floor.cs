@@ -74,13 +74,11 @@ namespace Minerunner
 
         public void Scroll()
         {
-            UpdateBlocks();
-
             Canvas.SetLeft(_canvas, Canvas.GetLeft(_canvas) - _scrollSpeed);
             if (Canvas.GetLeft(_canvas) < -_blockSize)
             {
                 _currentBlocksBuffer.PushBack((BlockType)new Random().Next(2));
-                _steps += 1;
+                UpdateBlocks();
 
                 Canvas.SetLeft(_canvas, 0);
             }
