@@ -34,18 +34,22 @@ class Spritesheet
         this.columns = columns;
         this.pixelsX = pixelsX;
         this.pixelsY = pixelsY;
+    }
 
-        LoadSpritesheet(this.spritesheetImageURL);
+    public List<CroppedBitmap> Load()
+    {
+        var Spritesheet = LoadSpritesheet(this.spritesheetImageURL);
+        SplitSpritesheet(Spritesheet, this.rows, this.columns, this.pixelsX, this.pixelsY);
 
-        SplitSpritesheet(this.spritesheet, this.rows, this.columns, this.pixelsX, this.pixelsY);
+        return this.spritesheetSprites;
     }
 
     // Load Spritesheet
-    private void LoadSpritesheet(string spritesheetImageURL)
+    private BitmapImage LoadSpritesheet(string spritesheetImageURL)
     {
-        this.spritesheet = new BitmapImage(new Uri(spritesheetImageURL));
+        this.spritesheet = new BitmapImage(new Uri("pack://application:,,," + spritesheetImageURL));
 
-        return;
+        return this.spritesheet;
     }
 
     // Split the Spritesheet & add to list
@@ -53,16 +57,11 @@ class Spritesheet
     {
         int spriteX = 0;
         int spriteY = 0;
-        int spriteWidth = pixelsX;
-        int spriteHeight = pixelsY;
-
+        
         for (int i = 0; i < rows; i++) {
-            CroppedBitmap sprite = new CroppedBitmap(this.spritesheet, new Int32Rect(spriteX, spriteY, spriteWidth, spriteHeight));
-
-            this.spritesheetSprites.Add(sprite);
+            this.spritesheetSprites.Add(new CroppedBitmap(this.spritesheet, new Int32Rect(spriteX, spriteY, pixelsX, pixelsY)));
 
             spriteX += pixelsX;
-            spriteY += pixelsY;
         }
     }
 }

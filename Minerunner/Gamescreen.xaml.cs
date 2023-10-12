@@ -20,9 +20,17 @@ namespace Minerunner
     /// </summary>
     public partial class Gamescreen : Page
     {
+        private ImageBrush playerBrush = new ImageBrush();
         public Gamescreen()
         {
             InitializeComponent();
+
+            var Spritesheet = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000);
+
+            playerBrush.ImageSource = Spritesheet.Load()[1];
+
+            player.Fill = playerBrush;
+
         }
     }
 }

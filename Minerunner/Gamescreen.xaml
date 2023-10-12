@@ -9,6 +9,6 @@
       Title="Gamescreen">
 
     <Canvas Background="White">
-        <Rectangle Height="100" Canvas.Left="350" Fill="Magenta" Canvas.Top="175" Width="100"/>
+        <Rectangle x:Name="player" Height="100" Canvas.Left="350" Fill="Magenta" Canvas.Top="175" Width="100"/>
     </Canvas>
 </Page>
