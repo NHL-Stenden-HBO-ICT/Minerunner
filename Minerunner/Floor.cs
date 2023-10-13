@@ -13,11 +13,13 @@ namespace Minerunner
 {
     internal class Floor
     {
-        public enum BlockType
+        public enum BiomeType
         {
             Plains,
             Desert,
         }
+
+        public BiomeType CurrentBiome { get; private set; }
 
         private Canvas _canvas;
         private int _scrollSpeed = 5;
@@ -26,7 +28,7 @@ namespace Minerunner
         private int _steps;
         private int _totalBlocks;
 
-        private CircularBuffer<BlockType> _currentBlocksBuffer;
+        private CircularBuffer<BiomeType> _currentBlocksBuffer;
 
         public Floor(Canvas canvas, int scrollSpeed = 5, int blockSize = 50)
         {
@@ -35,7 +37,7 @@ namespace Minerunner
             _blockSize = blockSize;
 
             _totalBlocks = (int)_canvas.Width / blockSize + 1;
-            _currentBlocksBuffer = new CircularBuffer<BlockType>(_totalBlocks);
+            _currentBlocksBuffer = new CircularBuffer<BiomeType>(_totalBlocks);
 
             for (int i = 0; i < _totalBlocks; i++)
             {
@@ -47,7 +49,7 @@ namespace Minerunner
                 _canvas.Children.Add(rect);
                 Canvas.SetLeft(rect, i * blockSize);
 
-                _currentBlocksBuffer.PushBack(BlockType.Plains);
+                _currentBlocksBuffer.PushBack(BiomeType.Plains);
             }
         }
 
@@ -59,11 +61,11 @@ namespace Minerunner
 
                 switch (_currentBlocksBuffer[i])
                 {
-                    case BlockType.Plains:
+                    case BiomeType.Plains:
                         color = Color.FromRgb(0, 255, 0);
                         break;
 
-                    case BlockType.Desert:
+                    case BiomeType.Desert:
                         color = Color.FromRgb(225, 255, 0);
                         break;
                 }
@@ -77,10 +79,22 @@ namespace Minerunner
             Canvas.SetLeft(_canvas, Canvas.GetLeft(_canvas) - _scrollSpeed);
             if (Canvas.GetLeft(_canvas) < -_blockSize)
             {
-                _currentBlocksBuffer.PushBack((BlockType)new Random().Next(2));
+                int biomeIndex = (int)Math.Floor(_steps / 100.0);
+                if (Enum.IsDefined(typeof(BiomeType), 3))
+                {
+                    CurrentBiome = (BiomeType)biomeIndex;
+                }
+                else
+                {
+                    CurrentBiome = BiomeType.Plains;
+                }
+
+                _currentBlocksBuffer.PushBack(CurrentBiome);
                 UpdateBlocks();
 
                 Canvas.SetLeft(_canvas, 0);
+
+                _steps++;
             }
         }
     }
