@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 class Spritesheet
@@ -46,6 +47,7 @@ class Spritesheet
         SplitSpritesheet(Spritesheet, this.rows, this.columns, this.pixelsX, this.pixelsY);
     }
 
+    // Load sprites & change them every Nnd tick
     public CroppedBitmap Load()
     {
         if (this.tickrate == this.rows * this.tickrateInterval)
@@ -74,6 +76,9 @@ class Spritesheet
         
         for (int i = 0; i < rows; i++) {
             this.spritesheetSprites.Add(new CroppedBitmap(this.spritesheet, new Int32Rect(spriteX, spriteY, pixelsX, pixelsY)));
+
+            // Possibly improves performance
+            RenderOptions.SetBitmapScalingMode(this.spritesheetSprites[i], BitmapScalingMode.LowQuality);
 
             spriteX += pixelsX;
         }

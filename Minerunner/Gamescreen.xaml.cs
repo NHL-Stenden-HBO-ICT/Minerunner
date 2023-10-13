@@ -23,14 +23,19 @@ namespace Minerunner
     {
         private ImageBrush playerBrush = new ImageBrush();
         private DispatcherTimer gameTimer = new DispatcherTimer();
-        private List<CroppedBitmap> sprites;
         private Spritesheet Spritesheet;
         public Gamescreen()
         {
+            // Load spritesheet
+            Spritesheet = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000, 8);
+
             InitializeComponent();
+            
+            // Load first sprite - needed to mitigate slow loading speed 
+            playerBrush.ImageSource = Spritesheet.Load();
+            player.Fill = playerBrush;
 
-            Spritesheet = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000, 4);
-
+            // Gametimer
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Tick += GameEngine;
             gameTimer.Start();
@@ -39,6 +44,7 @@ namespace Minerunner
 
         private void GameEngine(object? sender, EventArgs e)
         {
+            // Load sprite & draw to player model
             playerBrush.ImageSource = Spritesheet.Load();
 
             player.Fill = playerBrush;
