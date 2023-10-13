@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Minerunner
 {
@@ -21,15 +22,27 @@ namespace Minerunner
     public partial class Gamescreen : Page
     {
         private ImageBrush playerBrush = new ImageBrush();
+        private DispatcherTimer gameTimer = new DispatcherTimer();
+        private List<CroppedBitmap> sprites;
+        private Spritesheet Spritesheet;
         public Gamescreen()
         {
             InitializeComponent();
 
-            var Spritesheet = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000);
+            Spritesheet = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000, 4);
 
-            playerBrush.ImageSource = Spritesheet.Load()[1];
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Tick += GameEngine;
+            gameTimer.Start();
+
+        }
+
+        private void GameEngine(object? sender, EventArgs e)
+        {
+            playerBrush.ImageSource = Spritesheet.Load();
 
             player.Fill = playerBrush;
+
 
         }
     }

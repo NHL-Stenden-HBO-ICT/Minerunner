@@ -20,6 +20,12 @@ class Spritesheet
     // Amount of pixels per image in the Y-axis
     private int pixelsY;
 
+    // Current tick
+    private int tickrate = 1;
+
+    // Sprite tickrate interval - At how many tickrates should sprite change
+    private int tickrateInterval;
+
     // Spritesheet img
     private BitmapImage spritesheet;
 
@@ -27,21 +33,29 @@ class Spritesheet
     private List<CroppedBitmap> spritesheetSprites = new List<CroppedBitmap>();
 
     // Init Method
-    public Spritesheet(string spritesheetImageURL, int rows, int columns, int pixelsX, int pixelsY)
+    public Spritesheet(string spritesheetImageURL, int rows, int columns, int pixelsX, int pixelsY, int tickrateInterval)
     {
         this.spritesheetImageURL = spritesheetImageURL;
         this.rows = rows;
         this.columns = columns;
         this.pixelsX = pixelsX;
         this.pixelsY = pixelsY;
-    }
+        this.tickrateInterval = tickrateInterval;
 
-    public List<CroppedBitmap> Load()
-    {
         var Spritesheet = LoadSpritesheet(this.spritesheetImageURL);
         SplitSpritesheet(Spritesheet, this.rows, this.columns, this.pixelsX, this.pixelsY);
+    }
 
-        return this.spritesheetSprites;
+    public CroppedBitmap Load()
+    {
+        if (this.tickrate == this.rows * this.tickrateInterval)
+            this.tickrate = 1;
+
+        var currentSprite = this.spritesheetSprites[this.tickrate / this.tickrateInterval];
+
+        this.tickrate++;
+
+        return currentSprite;
     }
 
     // Load Spritesheet
