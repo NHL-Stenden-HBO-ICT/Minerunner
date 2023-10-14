@@ -4,6 +4,21 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
+/*  How to use
+ *  
+ *  | Create new Spritesheet(Relative URL, # of rows, Column number, Width of 1 sprite in px, Length of 1 sprite in px)
+ *  Spritesheet = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000);
+ *
+ *  | Initial load
+ *  playerBrush.ImageSource = Spritesheet.Load();
+ *  player.Fill = playerBrush;
+ *
+ *  | Make custom timer for Spritesheets & update sprite every tick
+ *  playerBrush.ImageSource = Spritesheet.Load();
+ *  player.Fill = playerBrush;
+ *
+ */
+
 class Spritesheet
 {
     // Link to spritesheet image
@@ -12,8 +27,8 @@ class Spritesheet
     // Amount of rows
     private int rows;
 
-    // Amount of columns
-    private int columns;
+    // Column
+    private int column;
 
     // Amount of pixels per image in the X-axis
     private int pixelsX;
@@ -22,10 +37,7 @@ class Spritesheet
     private int pixelsY;
 
     // Current tick
-    private int tickrate = 1;
-
-    // Sprite tickrate interval - At how many tickrates should sprite change
-    private int tickrateInterval;
+    private int tickrate = 0;
 
     // Spritesheet img
     private BitmapImage spritesheet;
@@ -34,26 +46,29 @@ class Spritesheet
     private List<CroppedBitmap> spritesheetSprites = new List<CroppedBitmap>();
 
     // Init Method
-    public Spritesheet(string spritesheetImageURL, int rows, int columns, int pixelsX, int pixelsY, int tickrateInterval)
+    public Spritesheet(string spritesheetImageURL, int rows, int column, int pixelsX, int pixelsY)
     {
+        // Set vars
         this.spritesheetImageURL = spritesheetImageURL;
         this.rows = rows;
-        this.columns = columns;
+        this.column = column;
         this.pixelsX = pixelsX;
         this.pixelsY = pixelsY;
-        this.tickrateInterval = tickrateInterval;
 
+        // Load & split spritesheet
         var Spritesheet = LoadSpritesheet(this.spritesheetImageURL);
-        SplitSpritesheet(Spritesheet, this.rows, this.columns, this.pixelsX, this.pixelsY);
+        SplitSpritesheet(Spritesheet, this.rows, this.column, this.pixelsX, this.pixelsY);
     }
 
-    // Load sprites & change them every Nnd tick
+    // Load sprites & change them every tick
     public CroppedBitmap Load()
     {
-        if (this.tickrate == this.rows * this.tickrateInterval)
-            this.tickrate = 1;
+        // Reset if at last sprite
+        if (this.tickrate == this.rows)
+            this.tickrate = 0;
 
-        var currentSprite = this.spritesheetSprites[this.tickrate / this.tickrateInterval];
+        // Return sprite
+        var currentSprite = this.spritesheetSprites[this.tickrate];
 
         this.tickrate++;
 
@@ -63,17 +78,20 @@ class Spritesheet
     // Load Spritesheet
     private BitmapImage LoadSpritesheet(string spritesheetImageURL)
     {
+        // Get spritesheet
         this.spritesheet = new BitmapImage(new Uri("pack://application:,,," + spritesheetImageURL));
 
         return this.spritesheet;
     }
 
     // Split the Spritesheet & add to list
-    private void SplitSpritesheet(BitmapImage spritesheet, int rows, int columns, int pixelsX, int pixelsY)
+    private void SplitSpritesheet(BitmapImage spritesheet, int rows, int column, int pixelsX, int pixelsY)
     {
+        // vars
         int spriteX = 0;
-        int spriteY = 0;
+        int spriteY = (column - 1) * pixelsY;
         
+        // Add every sprite to a list
         for (int i = 0; i < rows; i++) {
             this.spritesheetSprites.Add(new CroppedBitmap(this.spritesheet, new Int32Rect(spriteX, spriteY, pixelsX, pixelsY)));
 
