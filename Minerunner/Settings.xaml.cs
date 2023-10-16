@@ -37,10 +37,8 @@ namespace Minerunner
         {
             this.NavigationService.GoBack();
         }
-        private void Speeltijd_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.GoBack();
-        }
+   
+  
 
         private void Speeltijd_Click(object sender, RoutedEventArgs e)
         {
