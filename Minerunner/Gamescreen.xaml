@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Gamescreen">
 
-    <Canvas Background="White">
+    <Canvas x:Name="gameCanvas" Background="White" Focusable="true" KeyUp="OnKeyUp" KeyDown="OnKeyDown">
         <Rectangle x:Name="player" Height="100" Canvas.Left="350" Fill="Magenta" Canvas.Top="175" Width="100"/>
     </Canvas>
 </Page>
