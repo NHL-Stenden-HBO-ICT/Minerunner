@@ -59,7 +59,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Button Name="Num1" Content="1" Grid.Column="1" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num1_Click"/>
-                <Button Name="Num2" Content="2" Grid.Column="2" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num2Click"/>
+                <Button Name="Num2" Content="2" Grid.Column="2" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num2_Click"/>
                 <Button Name="Num3" Content="3" Grid.Column="3" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num3_Click"/>
             </Grid>
 
