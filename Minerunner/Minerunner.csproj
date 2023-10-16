@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\spritesheets\player\steve_spritesheet.png" />
+  </ItemGroup>
+
 </Project>
