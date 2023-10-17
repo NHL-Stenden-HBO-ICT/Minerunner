@@ -25,10 +25,20 @@ namespace Minerunner
             InitializeComponent();
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
+        private void Volume_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
+        private void Helderheid_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
+   
+  
 
         private void Speeltijd_Click(object sender, RoutedEventArgs e)
         {
