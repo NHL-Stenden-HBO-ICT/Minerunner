@@ -2,6 +2,9 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Minerunner
@@ -18,6 +21,7 @@ namespace Minerunner
         private Spritesheet playerSpriteWalk, playerSpriteCrouch;
         private bool jump, crouch;
         private int gravity = 25;
+        private Floor floor;
 
         public Gamescreen()
         {
@@ -28,6 +32,7 @@ namespace Minerunner
             // Init gamescreen
             InitializeComponent();
 
+            floor = new Floor(ChunkCanvas);
             gameCanvas.Focus();
 
             // Load first sprite - needed to mitigate slow loading speed 
@@ -48,14 +53,14 @@ namespace Minerunner
         // Timer to handle game logic
         private void GameEngine(object? sender, EventArgs e)
         {
+            floor.Scroll();
+        
             // Gravity
             Canvas.SetTop(player, Canvas.GetTop(player) + gravity);
             
             // Player jump
             if (jump == true)
                 Canvas.SetTop(player, Canvas.GetTop(player) - 100);
-                
-
         }
 
         // Movement trigger, on key press down

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using System.Windows.Navigation;
 
 namespace Minerunner
@@ -25,8 +26,8 @@ namespace Minerunner
         {
             InitializeComponent();
 
-            this.WindowState = WindowState.Maximized;
-            this.WindowStyle = WindowStyle.None;
+            //this.WindowState = WindowState.Maximized;
+            //this.WindowStyle = WindowStyle.None;
         }
     }
 }
