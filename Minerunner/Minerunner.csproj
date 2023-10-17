@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\music\Sweden-C418.mp3" />
+    <None Remove="assets\music\Sweden.WAV" />
+    <None Remove="assets\music\Thirteen-C418.mp3" />
+    <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\music\Sweden-C418.mp3" />
+    <Resource Include="assets\music\Sweden.WAV" />
+    <Resource Include="assets\music\Thirteen-C418.mp3" />
     <PackageReference Include="CircularBuffer" Version="1.3.0" />
     <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
     <Resource Include="assets\spritesheets\player\steve_spritesheet.png" />
