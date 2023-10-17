@@ -21,12 +21,12 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        
+
         <!--Title-->
         <Grid Grid.Column="1">
-            <TextBlock Name="Title" Text=" Parental Control" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Name="Title" Text=" Parental Control"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="150" TextAlignment="Center" ></TextBlock>
         </Grid>
-        
+
         <!--Back-->
         <Grid Grid.Column="2">
             <Button Name="Back" Content="Back"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="Back_Click"></Button>
@@ -35,77 +35,43 @@
         <!--Pin code-->
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="30*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <!--Password-->
-            <TextBlock Name="Pincode" Text=". . . ." Grid.Row="0" VerticalAlignment="Bottom" Height="27" TextAlignment="Center" />
-
-            <!--Pincode 1,3-->
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Name="Num1" Content="1" Grid.Column="1" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num1_Click"/>
-                <Button Name="Num2" Content="2" Grid.Column="2" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num2Click"/>
-                <Button Name="Num3" Content="3" Grid.Column="3" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num3_Click"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <PasswordBox Grid.Column="1" Grid.Row="2" Name="PWB_1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MaxLength="4" PasswordChanged="PasswordChangedHandler"/>
+                
             </Grid>
 
-            <!--Pincode 4,6-->
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button Name="Num4" Content="4" Grid.Column="1" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num4_Click"/>
-                <Button Name="Num5" Content="5" Grid.Column="2" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num5_Click"/>
-                <Button Name="Num6" Content="6" Grid.Column="3" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num6_Click"/>
-            </Grid>
-
-            <!--Pincode 7,9-->
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button Name="Num7" Content="7" Grid.Column="1" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num7_Click"/>
-                <Button Name="Num8" Content="8" Grid.Column="2" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num8_Click"/>
-                <Button Name="Num9" Content="9" Grid.Column="3" Width="50" Height="50" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Num9_Click"/>
-            </Grid>
 
             <!--Gereed en Backspace-->
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="Gereed" Content="Gereed" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,05,0" Click="Gereed_Click"></Button>
-                <Button Name="Backspace" Content="Backspace" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-
+                <Button Name="Gereed" Content="Gereed" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,10,0" Click="Gereed_Click"/>
+                <Button Name="Backspace" Content="Backspace" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0"/>
             </Grid>
 
 
         </Grid>
-
-
-
     </Grid>
 </Page>

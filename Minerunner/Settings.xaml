@@ -15,7 +15,7 @@
         <TextBox TextWrapping="Wrap"  Text="INSTELLINGEN" Margin="184,46,161,351" TextAlignment="Center" FontSize="36" BorderBrush="White"/>
         <Rectangle HorizontalAlignment="Left" Height="54" Margin="184,140,0,0" Stroke="Purple" VerticalAlignment="Top" Width="455"/>
         <Rectangle HorizontalAlignment="Left" Height="54" Margin="184,200,0,0" Stroke="Purple" VerticalAlignment="Top" Width="455"/>
-        <Button Content="SPEELTIJD" HorizontalAlignment="Left" Height="54" Margin="184,259,0,0" VerticalAlignment="Top" Width="455" BorderBrush="Red" Background="White"/>
+        <Button Content="SPEELTIJD" HorizontalAlignment="Left" Height="54" Margin="184,259,0,0" VerticalAlignment="Top" Width="455" BorderBrush="Red" Background="White" Click="Button_Click"/>
         <Label Content="VOLUME" Margin="205,146,510,274" Foreground="Purple" FontSize="18"/>
         <Label Content="HELDERHEID" Margin="205,209,470,211" Foreground="Purple" FontSize="18"/>
 

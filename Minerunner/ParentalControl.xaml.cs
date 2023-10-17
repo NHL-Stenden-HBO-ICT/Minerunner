@@ -20,8 +20,11 @@ namespace Minerunner
     /// </summary>
     public partial class ParentalControl : Page
     {
-        int[] pincode = new int[4];
+        string pincode = "";
+        string[] testing = new string[4];
         int Maxpin = 0;
+
+        
 
         public ParentalControl()
         {
@@ -36,8 +39,8 @@ namespace Minerunner
 
         private void Gereed_Click(object sender, RoutedEventArgs e)
         {
-            
-            this.NavigationService.GoBack();
+
+           
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -45,47 +48,38 @@ namespace Minerunner
             this.NavigationService.GoBack();
         }
 
-        // Nummer voor pincode
-        private void Num1_Click(object sender, RoutedEventArgs e)
+        void PasswordChangedHandler(Object sender, RoutedEventArgs args)
         {
-            string num1 = "1";
-            if (Maxpin > 4)
+            // Increment a counter each time the event fires.
+            if (PasswordChangedHandler != null) 
             {
-                Pincode.Text = num1;
+                string Input = PWB_1.Password.ToString();
+                pincode = Input;
+
+                if (pincode == " ")
+                {
+                    Maxpin++;
+                    
+                    
+                    if (Maxpin == 4)
+                    {
+                        if (Gereed.IsEnabled)
+                        {
+                            this.NavigationService.Navigate(new ParentalTime());
+                        }
+                    }
+                }
+                else if (pincode == pincode)
+                {
+                    
+                }
+
+                
             }
-            
-        }
-        private void Num2_Click(object sender, RoutedEventArgs e)
-        {
 
+           
         }
-        private void Num3_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-        private void Num4_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-        private void Num5_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Num6_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Num7_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Num8_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Num9_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

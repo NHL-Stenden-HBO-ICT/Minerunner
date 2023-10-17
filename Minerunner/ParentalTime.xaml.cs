@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace Minerunner
 {
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for ParentalTime.xaml
     /// </summary>
-    public partial class Settings : Page
+    public partial class ParentalTime : Page
     {
-        public Settings()
+        public ParentalTime()
         {
             InitializeComponent();
-        }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.GoBack();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ParentalControl());
         }
     }
 }
