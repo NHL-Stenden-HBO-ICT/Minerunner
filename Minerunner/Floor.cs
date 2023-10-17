@@ -45,9 +45,12 @@ namespace Minerunner
                 rect.Width = rect.Height = blockSize;
                 rect.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 rect.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                rect.Tag = "platform";
+                
 
                 _canvas.Children.Add(rect);
                 Canvas.SetLeft(rect, i * blockSize);
+                Canvas.SetTop(rect,500);
 
                 _currentBlocksBuffer.PushBack(BiomeType.Plains);
             }

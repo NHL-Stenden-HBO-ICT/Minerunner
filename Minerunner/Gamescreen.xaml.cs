@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -61,7 +63,31 @@ namespace Minerunner
             // Player jump
             if (jump == true)
                 Canvas.SetTop(player, Canvas.GetTop(player) - 100);
-        }
+
+            foreach (var x in ChunkCanvas.Children.OfType<Rectangle>())
+            {
+            
+                if ((string)x.Tag == "platform")
+                {
+                   
+                    Rect playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
+                    Rect platformHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (playerHitBox.IntersectsWith(platformHitBox))
+                    {
+                        gravity = 0;
+                        Canvas.SetTop(player, Canvas.GetTop(x) - player.Height);
+
+                    }
+                    else
+                    {
+                        gravity = 25;
+                    }
+                }
+            } 
+
+
+            }
 
         // Movement trigger, on key press down
         private void OnKeyDown(object sender, KeyEventArgs e)
