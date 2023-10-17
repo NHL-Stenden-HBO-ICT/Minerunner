@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -21,30 +14,91 @@ namespace Minerunner
     /// </summary>
     public partial class Gamescreen : Page
     {
-        private DispatcherTimer updateTimer = new DispatcherTimer();
+        // Vars
+        private ImageBrush playerBrush = new ImageBrush();
+        private DispatcherTimer gameTimer = new DispatcherTimer();
+        private DispatcherTimer spritesheetTimer = new DispatcherTimer();
+        private Spritesheet playerSpriteWalk, playerSpriteCrouch;
+        private bool jump, crouch;
+        private int gravity = 25;
         private Floor floor;
 
         public Gamescreen()
         {
+            // Load spritesheets
+            playerSpriteWalk = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 1, 2000, 3000);
+            playerSpriteCrouch = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 2, 2000, 3000);
+
+            // Init gamescreen
             InitializeComponent();
 
-            updateTimer.Interval = TimeSpan.FromMilliseconds(20);
-            updateTimer.Tick += OnUpdate;
-            updateTimer.Start();
-
             floor = new Floor(ChunkCanvas);
+            gameCanvas.Focus();
+
+            // Load first sprite - needed to mitigate slow loading speed 
+            playerBrush.ImageSource = playerSpriteWalk.Load();
+            player.Fill = playerBrush;
+
+            // Gametimer
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Tick += GameEngine;
+            gameTimer.Start();
+
+            // Spritesheet Timer
+            spritesheetTimer.Interval = TimeSpan.FromMilliseconds(200);
+            spritesheetTimer.Tick += SpritesheetTimer;
+            spritesheetTimer.Start();
         }
 
-        private Brush RandomColor()
-        {
-            Random r = new Random();
-            return new SolidColorBrush(Color.FromRgb((byte)r.Next(1, 255),
-                              (byte)r.Next(1, 255), (byte)r.Next(1, 233)));
-        }
-
-        private void OnUpdate(object? sender, EventArgs e)
+        // Timer to handle game logic
+        private void GameEngine(object? sender, EventArgs e)
         {
             floor.Scroll();
+        
+            // Gravity
+            Canvas.SetTop(player, Canvas.GetTop(player) + gravity);
+            
+            // Player jump
+            if (jump == true)
+                Canvas.SetTop(player, Canvas.GetTop(player) - 100);
+        }
+
+        // Movement trigger, on key press down
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+                jump = true;
+
+            if (e.Key == Key.LeftCtrl)
+                crouch = true;
+
+        }
+
+        // Movement trigger, on key press up
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Space)
+                jump = false;
+
+            if (e.Key == Key.LeftCtrl)
+                crouch = false;
+        }
+
+        // Timer to handle spritesheets
+        private void SpritesheetTimer(object? sender, EventArgs e)
+        {
+            if (crouch == true)
+            {
+                playerBrush.ImageSource = playerSpriteCrouch.Load();
+
+                player.Fill = playerBrush;
+            } else
+            {
+                playerBrush.ImageSource = playerSpriteWalk.Load();
+
+                player.Fill = playerBrush;
+            }
         }
     }
 }

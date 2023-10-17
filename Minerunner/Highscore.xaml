@@ -9,46 +9,64 @@
       Title="Page1">
 
     <Grid Background="White">
-        <Label x:Name="Highscore_titel_Copy"
-            Content="1: Dylan 3756"   
-            HorizontalContentAlignment="Center"
-            FontSize="20"  
-            FontWeight="Bold" Margin="300,86,300,271"/>
-        <Label x:Name="Highscore_titel_Copy1"
-            Content="2: Freark 3254"   
-               HorizontalContentAlignment="Center"
-            FontSize="20"  
-            FontWeight="Bold" Margin="304,113,296,246"/>
-        <Label x:Name="Highscore_titel_Copy2"
-            Content="3: Max 2974"   
-            HorizontalContentAlignment="Center"   
-            FontSize="20"  
-            FontWeight="Bold" Margin="300,142,300,219"/>
-        <Label x:Name="Highscore_titel_Copy3"
-            Content="4: Onurcan 2213" 
-               HorizontalContentAlignment="Center"
-            FontSize="20"  
-            FontWeight="Bold" Margin="300,167,300,204"/>
-        <Label x:Name="Highscore_titel_Copy4"
-            Content="5: Lars 2117"
-               HorizontalContentAlignment="Center"   
-            FontSize="20"  
-            FontWeight="Bold" Margin="300,194,300,183"/>
-        <Label x:Name="Highscore_titel_Copy5"
-            Content="6: Eelke 1394" 
-               HorizontalContentAlignment="Center"
-            FontSize="20"  
-            FontWeight="Bold" Margin="294,225,294,148"/>
-        <Label x:Name="Highscore_titel_Copy6"
-            Content="Uw hoogste highscore: 3756"   
-               HorizontalContentAlignment="Center"
-            FontSize="16"  
-            Margin="287,265,300,148"/>
-        <Label x:Name="Highscore_titel_Copy7"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Rectangle></Rectangle>
+        <Grid Grid.Column="1">
+            <Label x:Name="Highscore_titel_Copy7"
             Content="Highscores"   
             FontSize="36"  
                HorizontalContentAlignment="Center"
-            FontWeight="Bold" Margin="300,21,293,327"/>
-        <Button Content="Terug" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,303,0,0" Height="55" Width="256" Click="Highscore_Terug"/>
+            FontWeight="Bold"/>
+            <Label x:Name="Highscore_titel_Copy"
+            Content="1: Dylan 3756"   
+            HorizontalContentAlignment="Center"
+            FontSize="20"  
+            FontWeight="Bold" Margin="0,50,0,0"/>
+
+            <Label x:Name="Highscore_titel_Copy2"
+            Content="2: Freark 3254"   
+            HorizontalContentAlignment="Center"
+            FontSize="20"  
+            FontWeight="Bold" Margin="0,70,0,0"/>
+
+            <Label x:Name="Highscore_titel_Copy3"
+            Content="3: Max 2974"   
+            HorizontalContentAlignment="Center"
+            FontSize="20"  
+            FontWeight="Bold" Margin="0,90,0,0"/>
+            
+            <Label x:Name="Highscore_titel_Copy4"
+            Content="4: Onurcan 2213"   
+            HorizontalContentAlignment="Center"
+            FontSize="20"  
+            FontWeight="Bold" Margin="0,110,0,0"/>
+
+            <Label x:Name="Highscore_titel_Copy5"
+            Content="5: Lars 2117"   
+            HorizontalContentAlignment="Center"
+            FontSize="20"  
+            FontWeight="Bold" Margin="0,130,0,0"/>
+
+            <Label x:Name="Highscore_titel_Copy6"
+            Content="6: Eelke 1394"   
+            HorizontalContentAlignment="Center"
+            FontSize="20"  
+            FontWeight="Bold" Margin="0,150,0,0"/>
+
+            <Label x:Name="Highscore_titel_Copy8"
+            Content="Uw hoogste highscore: 3756"   
+               HorizontalContentAlignment="Center"
+            FontSize="16" Margin="0,200,0,0"/>
+
+            <Button Content="Terug" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" Height="55" Width="256" Click="Highscore_Terug"/>
+
+        </Grid>
     </Grid>
 </Page>
