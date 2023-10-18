@@ -46,11 +46,10 @@ namespace Minerunner
                 rect.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 rect.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 rect.Tag = "platform";
-                
 
                 _canvas.Children.Add(rect);
                 Canvas.SetLeft(rect, i * blockSize);
-                Canvas.SetTop(rect,500);
+                Canvas.SetTop(rect, 500);
 
                 _currentBlocksBuffer.PushBack(BiomeType.Plains);
             }
@@ -83,7 +82,7 @@ namespace Minerunner
             if (Canvas.GetLeft(_canvas) < -_blockSize)
             {
                 int biomeIndex = (int)Math.Floor(_steps / 100.0);
-                if (Enum.IsDefined(typeof(BiomeType), 3))
+                if (Enum.IsDefined(typeof(BiomeType), biomeIndex))
                 {
                     CurrentBiome = (BiomeType)biomeIndex;
                 }
