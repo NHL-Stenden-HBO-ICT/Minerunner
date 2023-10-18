@@ -4,8 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -21,8 +19,8 @@ namespace Minerunner
         private DispatcherTimer gameTimer = new DispatcherTimer();
         private DispatcherTimer spritesheetTimer = new DispatcherTimer();
         private Spritesheet playerSpriteWalk, playerSpriteCrouch;
-        private bool jump, crouch;
-        private int gravity = 25;
+        private bool jump, crouch, collision;
+        private double gravity = 0;
         private Floor floor;
 
         public Gamescreen()
@@ -59,11 +57,9 @@ namespace Minerunner
         
             // Gravity
             Canvas.SetTop(player, Canvas.GetTop(player) + gravity);
-            
-            // Player jump
-            if (jump == true)
-                Canvas.SetTop(player, Canvas.GetTop(player) - 100);
+            gravity += 2;
 
+            // Collision
             foreach (var x in ChunkCanvas.Children.OfType<Rectangle>())
             {
             
@@ -75,38 +71,40 @@ namespace Minerunner
 
                     if (playerHitBox.IntersectsWith(platformHitBox))
                     {
+                        // Collision
                         gravity = 0;
+                        collision = true;
                         Canvas.SetTop(player, Canvas.GetTop(x) - player.Height);
 
-                    }
-                    else
+                    } else
                     {
-                        gravity = 25;
+                        // Player jump
+                        if (jump == true)
+                        {
+                            collision = false;
+                            Canvas.SetTop(player, Canvas.GetTop(player) - 2);
+
+                            if (Canvas.GetTop(player) <= Canvas.GetTop(x) - player.Height - 100)
+                                jump = false;
+                        }
                     }
                 }
             } 
-
-
-            }
+        }
 
         // Movement trigger, on key press down
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space)
+            if (e.Key == Key.Space && collision == true)
                 jump = true;
 
             if (e.Key == Key.LeftCtrl)
                 crouch = true;
-
         }
 
         // Movement trigger, on key press up
         private void OnKeyUp(object sender, KeyEventArgs e)
         {
-
-            if (e.Key == Key.Space)
-                jump = false;
-
             if (e.Key == Key.LeftCtrl)
                 crouch = false;
         }
