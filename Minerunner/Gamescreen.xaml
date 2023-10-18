@@ -9,7 +9,7 @@
       Title="Gamescreen">
 
     <Canvas x:Name="gameCanvas" Background="White" Focusable="true" KeyUp="OnKeyUp" KeyDown="OnKeyDown">
-        <Rectangle x:Name="player" Height="100" Canvas.Left="350" Fill="Magenta" Canvas.Top="175" Width="100"/>
-        <Canvas Background="White" x:Name="ChunkCanvas" Canvas.Left="0" Width="800" />
+        <Rectangle x:Name="player" Height="100" Canvas.Left="350" Fill="Magenta" Canvas.Top="175" Width="100" />
+        <Canvas Background="White" x:Name="ChunkCanvas" Canvas.Left="0" Canvas.Bottom="0" Width="1920" />
     </Canvas>
 </Page>

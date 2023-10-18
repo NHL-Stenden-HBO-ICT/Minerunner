@@ -48,8 +48,10 @@ namespace Minerunner
                 rect.Tag = "platform";
 
                 _canvas.Children.Add(rect);
+
                 Canvas.SetLeft(rect, i * blockSize);
-                Canvas.SetTop(rect, 500);
+                Canvas.SetTop(rect, Canvas.GetBottom(_canvas) - blockSize);
+                //Canvas.SetTop(rect, 500);
 
                 _currentBlocksBuffer.PushBack(BiomeType.Plains);
             }
