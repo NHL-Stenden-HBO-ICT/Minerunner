@@ -9,15 +9,16 @@
       Title="Settings">
 
     <Grid Background="White">
-        <Button Content="Back" HorizontalAlignment="Right" Height="22" Margin="761,10,0,0" VerticalAlignment="Top" Width="29" Click="Back_Click"/>
-        <Slider Margin="335,214,186,216"/>
-        <Slider Margin="335,157,186,274"/>
-        <TextBox TextWrapping="Wrap"  Text="INSTELLINGEN" Margin="184,46,161,351" TextAlignment="Center" FontSize="36" BorderBrush="White"/>
-        <Rectangle HorizontalAlignment="Left" Height="54" Margin="184,140,0,0" Stroke="Purple" VerticalAlignment="Top" Width="455"/>
-        <Rectangle HorizontalAlignment="Left" Height="54" Margin="184,200,0,0" Stroke="Purple" VerticalAlignment="Top" Width="455"/>
-        <Button Content="SPEELTIJD" HorizontalAlignment="Left" Height="54" Margin="184,259,0,0" VerticalAlignment="Top" Width="455" BorderBrush="Red" Background="White" Click="Button_Click"/>
-        <Label Content="VOLUME" Margin="205,146,510,274" Foreground="Purple" FontSize="18"/>
-        <Label Content="HELDERHEID" Margin="205,209,470,211" Foreground="Purple" FontSize="18"/>
-
+        <Button Content="HELDERHEID" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Height="75" Width="300" Click="Helderheid_Click" FontSize="14" FontWeight="Bold"/>
+        <Button Content="SPEELTIJD" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Height="75" Width="300" Click="Speeltijd_Click" FontWeight="Bold" FontSize="14"/>
+        <Label Content="INSTELLINGEN" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Height="70" Width="532" FontFamily="Arial Black" FontSize="60" HorizontalContentAlignment="Center"/>
+        <Button Content="X" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" Width="20" Click="Exit_Click"/>
+        <Rectangle HorizontalAlignment="Center" Height="75
+                   " Stroke="Black" VerticalAlignment="Top" Width="300" Margin="0,200,0,0"/>
+        <Label Content="VOLUME" HorizontalAlignment="Center" Height="26" Margin="0,205,0,0" VerticalAlignment="Top" Width="80" FontSize="14" FontWeight="Bold"/>
+        <Slider Width="120"/>
+        <Slider Width="120"/>
+        <Slider HorizontalAlignment="Center" Height="25" Margin="0,238,0,0" VerticalAlignment="Top" Width="250" Minimum="0.0" Maximum="1.0" Value="0.8" x:Name="Volume"
+                ValueChanged="Volumeslider"/> 
     </Grid>
 </Page>

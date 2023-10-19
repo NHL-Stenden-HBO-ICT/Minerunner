@@ -27,7 +27,7 @@ namespace Minerunner
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Highscore());
+            this.NavigationService.Navigate(new Gamescreen());
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
