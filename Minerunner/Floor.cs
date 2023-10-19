@@ -36,7 +36,7 @@ namespace Minerunner
             _scrollSpeed = scrollSpeed;
             _blockSize = blockSize;
 
-            _totalBlocks = (int)_canvas.Width / blockSize + 1;
+            _totalBlocks = (int)1920 / blockSize + 1;
             _currentBlocksBuffer = new CircularBuffer<BiomeType>(_totalBlocks);
 
             for (int i = 0; i < _totalBlocks; i++)
