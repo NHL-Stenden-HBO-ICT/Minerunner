@@ -96,7 +96,7 @@ class Spritesheet
             this.spritesheetSprites.Add(new CroppedBitmap(this.spritesheet, new Int32Rect(spriteX, spriteY, pixelsX, pixelsY)));
 
             // Possibly improves performance
-            RenderOptions.SetBitmapScalingMode(this.spritesheetSprites[i], BitmapScalingMode.LowQuality);
+            RenderOptions.SetBitmapScalingMode(this.spritesheetSprites[i], BitmapScalingMode.NearestNeighbor);
 
             spriteX += pixelsX;
         }
