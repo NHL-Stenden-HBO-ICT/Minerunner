@@ -39,8 +39,11 @@ namespace Minerunner
 
         private void Gereed_Click(object sender, RoutedEventArgs e)
         {
+            if (Maxpin == 4)
+            {
+                this.NavigationService.Navigate(new ParentalTime());
+            }
 
-           
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -51,35 +54,10 @@ namespace Minerunner
         void PasswordChangedHandler(Object sender, RoutedEventArgs args)
         {
             // Increment a counter each time the event fires.
-            if (PasswordChangedHandler != null) 
-            {
                 string Input = PWB_1.Password.ToString();
                 pincode = Input;
-
-                if (pincode == " ")
-                {
-                    Maxpin++;
-                    
-                    
-                    if (Maxpin == 4)
-                    {
-                        if (Gereed.IsEnabled)
-                        {
-                            this.NavigationService.Navigate(new ParentalTime());
-                        }
-                    }
-                }
-                else if (pincode == pincode)
-                {
-                    
-                }
-
-                
-            }
-
-           
+                Maxpin++;
+                 
         }
-
-
     }
 }

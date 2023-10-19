@@ -24,7 +24,7 @@
 
         <!--Title-->
         <Grid Grid.Column="1">
-            <TextBlock Name="Title" Text=" Parental Control"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="150" TextAlignment="Center" ></TextBlock>
+            <TextBlock Name="Title" Text=" Parental Control" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBlock>
         </Grid>
 
         <!--Back-->
