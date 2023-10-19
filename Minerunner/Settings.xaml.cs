@@ -53,6 +53,11 @@ namespace Minerunner
             this.NavigationService.Navigate(new ParentalControl());
         }
 
+        private void Helderheid_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Volumeslider(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double Volumeamount = Volume.Value;
