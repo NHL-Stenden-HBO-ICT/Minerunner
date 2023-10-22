@@ -8,7 +8,7 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Gamescreen">
 
-    <Canvas x:Name="gameCanvas" Background="White" Focusable="true" KeyUp="OnKeyUp" KeyDown="OnKeyDown">
+    <Canvas x:Name="gameCanvas" Background="#7ea9ff" Focusable="true" KeyUp="OnKeyUp" KeyDown="OnKeyDown">
         <Rectangle x:Name="player" Height="100" Canvas.Left="350" Fill="Magenta" Canvas.Top="900" Width="100" />
         <Canvas x:Name="ChunkCanvas" Background="Orange" Canvas.Left="0" Canvas.Bottom="0" Width="1920" Height="50"/>
     </Canvas>

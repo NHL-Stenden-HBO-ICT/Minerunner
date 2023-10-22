@@ -18,7 +18,7 @@
     <None Remove="assets\spritesheets\stalker\creeper_spritesheet.png" />
     <None Remove="assets\textures\desert_cactus.png" />
     <None Remove="assets\textures\desert_sand.jpg" />
-    <None Remove="assets\textures\deset_sandstone.jpg" />
+    <None Remove="assets\textures\desert_sandstone.jpg" />
     <None Remove="assets\textures\dirt.jpg" />
     <None Remove="assets\textures\grassblock.jpg" />
     <None Remove="assets\textures\lava.jpg" />
@@ -41,7 +41,7 @@
     <Resource Include="assets\spritesheets\stalker\creeper_spritesheet.png" />
     <Resource Include="assets\textures\desert_cactus.png" />
     <Resource Include="assets\textures\desert_sand.jpg" />
-    <Resource Include="assets\textures\deset_sandstone.jpg" />
+    <Resource Include="assets\textures\desert_sandstone.jpg" />
     <Resource Include="assets\textures\dirt.jpg" />
     <Resource Include="assets\textures\grassblock.jpg" />
     <Resource Include="assets\textures\lava.jpg" />
