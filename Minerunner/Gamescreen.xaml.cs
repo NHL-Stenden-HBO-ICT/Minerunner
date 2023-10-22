@@ -22,6 +22,8 @@ namespace Minerunner
         private bool jump, crouch, collision;
         private double gravity = 0;
         private Floor floor;
+        private double score = 0; // Onni score.
+        
 
         public Gamescreen()
         {
@@ -54,7 +56,12 @@ namespace Minerunner
         private void GameEngine(object? sender, EventArgs e)
         {
             floor.Scroll();
-        
+
+            // Score
+            score += 0.1;
+            scoreText.Text = Math.Round(score, 1).ToString();
+            //ScoreText.Text = score.ToString();
+            
             // Gravity
             Canvas.SetTop(player, Canvas.GetTop(player) + gravity);
             gravity += 2;
