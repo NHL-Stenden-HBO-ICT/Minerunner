@@ -8,19 +8,47 @@
   </PropertyGroup>
 
   <ItemGroup>
+	<None Remove="assets\fonts\BalooBhai2-SemiBold.ttf" />
+	<None Remove="assets\fonts\Minecrafter.Reg.ttf" />
+	<None Remove="assets\logo\gaming_heroes.PNG" />
     <None Remove="assets\music\Sweden-C418.mp3" />
     <None Remove="assets\music\Sweden.WAV" />
     <None Remove="assets\music\Thirteen-C418.mp3" />
     <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
+    <None Remove="assets\spritesheets\stalker\creeper_spritesheet.png" />
+    <None Remove="assets\textures\desert_cactus.png" />
+    <None Remove="assets\textures\desert_sand.jpg" />
+    <None Remove="assets\textures\deset_sandstone.jpg" />
+    <None Remove="assets\textures\dirt.jpg" />
+    <None Remove="assets\textures\grassblock.jpg" />
+    <None Remove="assets\textures\lava.jpg" />
+    <None Remove="assets\textures\mushroom_mycelium.jpg" />
+    <None Remove="assets\textures\nether_netherrack.jpg" />
+    <None Remove="assets\textures\snow_snow.jpg" />
+    <None Remove="assets\textures\taiga_grassblock.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+	<Resource Include="assets\fonts\BalooBhai2-SemiBold.ttf" />
+	<Resource Include="assets\fonts\Minecrafter.Reg.ttf" />
+	<Resource Include="assets\logo\gaming_heroes.PNG" />
     <Resource Include="assets\music\Sweden-C418.mp3" />
     <Resource Include="assets\music\Sweden.WAV" />
     <Resource Include="assets\music\Thirteen-C418.mp3" />
     <PackageReference Include="CircularBuffer" Version="1.3.0" />
     <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
     <Resource Include="assets\spritesheets\player\steve_spritesheet.png" />
+    <Resource Include="assets\spritesheets\stalker\creeper_spritesheet.png" />
+    <Resource Include="assets\textures\desert_cactus.png" />
+    <Resource Include="assets\textures\desert_sand.jpg" />
+    <Resource Include="assets\textures\deset_sandstone.jpg" />
+    <Resource Include="assets\textures\dirt.jpg" />
+    <Resource Include="assets\textures\grassblock.jpg" />
+    <Resource Include="assets\textures\lava.jpg" />
+    <Resource Include="assets\textures\mushroom_mycelium.jpg" />
+    <Resource Include="assets\textures\nether_netherrack.jpg" />
+    <Resource Include="assets\textures\snow_snow.jpg" />
+    <Resource Include="assets\textures\taiga_grassblock.jpg" />
   </ItemGroup>
 
 </Project>
