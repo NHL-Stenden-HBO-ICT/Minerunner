@@ -65,16 +65,23 @@ namespace Minerunner
             
                 if ((string)x.Tag == "platform")
                 {
+
+                    // Platfrom Canvas.GetTop does not work, this is correct value
+                    int platformTop = 1030;
                    
                     Rect playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
-                    Rect platformHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    Rect platformHitBox = new Rect(0, platformTop, 1920, 50);
 
                     if (playerHitBox.IntersectsWith(platformHitBox))
                     {
                         // Collision
                         gravity = 0;
                         collision = true;
-                        Canvas.SetTop(player, Canvas.GetTop(x) - player.Height);
+                        Canvas.SetTop(player, platformTop - player.Height);
+
+                        // Initial jump
+                        if (jump == true)
+                            Canvas.SetTop(player, Canvas.GetTop(player) - 2);
 
                     } else
                     {
@@ -84,7 +91,7 @@ namespace Minerunner
                             collision = false;
                             Canvas.SetTop(player, Canvas.GetTop(player) - 2);
 
-                            if (Canvas.GetTop(player) <= Canvas.GetTop(x) - player.Height - 100)
+                            if (Canvas.GetTop(player) <= platformTop - player.Height - 100)
                                 jump = false;
                         }
                     }
