@@ -57,10 +57,10 @@ namespace Minerunner
         {
             floor.Scroll();
 
-            // Score
+            // Score - Dit negeren, verplaatst naar spritesheet.
             //score += 0.1;
             //scoreText.Text = Math.Round(score, 1).ToString();
-            //ScoreText.Text = score.ToString();
+            //scoreText.Text = score.ToString();
             
             // Gravity
             Canvas.SetTop(player, Canvas.GetTop(player) + gravity);
@@ -119,9 +119,9 @@ namespace Minerunner
         // Timer to handle spritesheets
         private void SpritesheetTimer(object? sender, EventArgs e)
         {
-            // Score maar dan in Spritesheet.
+            // Score
             score++;
-            scoreText.Text = score.ToString();
+            scoreText.Text = "Score " + score.ToString();
 
             if (crouch == true)
             {
