@@ -58,8 +58,8 @@ namespace Minerunner
             floor.Scroll();
 
             // Score
-            score += 0.1;
-            scoreText.Text = Math.Round(score, 1).ToString();
+            //score += 0.1;
+            //scoreText.Text = Math.Round(score, 1).ToString();
             //ScoreText.Text = score.ToString();
             
             // Gravity
@@ -119,6 +119,10 @@ namespace Minerunner
         // Timer to handle spritesheets
         private void SpritesheetTimer(object? sender, EventArgs e)
         {
+            // Score maar dan in Spritesheet.
+            score++;
+            scoreText.Text = score.ToString();
+
             if (crouch == true)
             {
                 playerBrush.ImageSource = playerSpriteCrouch.Load();
