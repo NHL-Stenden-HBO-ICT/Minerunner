@@ -48,14 +48,14 @@ namespace Minerunner
             this.NavigationService.GoBack();
         }
 
-        private void Helderheid_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Speeltijd_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new ParentalControl());
+        }
+
+        private void Helderheid_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Volumeslider(object sender, RoutedPropertyChangedEventArgs<double> e)
