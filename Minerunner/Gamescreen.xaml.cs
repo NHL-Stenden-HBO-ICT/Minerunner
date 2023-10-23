@@ -131,5 +131,13 @@ namespace Minerunner
                 player.Fill = playerBrush;
             }
         }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Titlescreen());
+        }
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Settings());
+        }
     }
 }
