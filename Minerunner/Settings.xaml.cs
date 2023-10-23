@@ -23,24 +23,14 @@ namespace Minerunner
     /// </summary>
     public partial class Settings : Page
     {
+        private MediaPlayer player = new MediaPlayer();
 
-        MediaPlayer player = new MediaPlayer();
-        Uri uri = new Uri("assets/music/Thirteen-C418.mp3", UriKind.Relative);
-
-        public Settings()
+        public Settings(MediaPlayer player = null)
         {
             InitializeComponent();
-
-            var tempFilePath = System.IO.Path.GetTempFileName();
-            tempFilePath = System.IO.Path.ChangeExtension(tempFilePath, System.IO.Path.GetExtension(uri.OriginalString));
-
-            var stream = Application.GetResourceStream(uri).Stream;
-            var fileStream = File.Create(tempFilePath);
-            stream.CopyTo(fileStream);
-            fileStream.Close();
-
-            player.Open(new Uri(tempFilePath));
-            player.Play();
+            this.player = player;
+            double Volumeamount = player.Volume;
+            Volume.Value = Volumeamount;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

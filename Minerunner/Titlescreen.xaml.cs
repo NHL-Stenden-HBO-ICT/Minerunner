@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Minerunner
 {
@@ -20,9 +21,24 @@ namespace Minerunner
     /// </summary>
     public partial class Titlescreen : Page
     {
+
+        MediaPlayer player = new MediaPlayer();
+        Uri uri = new Uri("assets/music/Thirteen-C418.mp3", UriKind.Relative);
+
         public Titlescreen()
         {
             InitializeComponent();
+
+            var tempFilePath = System.IO.Path.GetTempFileName();
+            tempFilePath = System.IO.Path.ChangeExtension(tempFilePath, System.IO.Path.GetExtension(uri.OriginalString));
+
+            var stream = Application.GetResourceStream(uri).Stream;
+            var fileStream = File.Create(tempFilePath);
+            stream.CopyTo(fileStream);
+            fileStream.Close();
+
+            player.Open(new Uri(tempFilePath));
+            player.Play();
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
@@ -37,7 +53,7 @@ namespace Minerunner
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Settings());
+            this.NavigationService.Navigate(new Settings(player));
         }
 
         private void Highscores_Click(object sender, RoutedEventArgs e)
