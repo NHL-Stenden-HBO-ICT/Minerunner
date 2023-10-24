@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
 
 namespace Minerunner
@@ -22,8 +12,8 @@ namespace Minerunner
     public partial class Titlescreen : Page
     {
 
-        MediaPlayer player = new MediaPlayer();
-        Uri uri = new Uri("assets/music/Thirteen-C418.mp3", UriKind.Relative);
+        MediaPlayer musicPlayer = new MediaPlayer();
+        Uri uri = new Uri("assets/music/Sweden-C418.mp3", UriKind.Relative);
 
         public Titlescreen()
         {
@@ -37,13 +27,13 @@ namespace Minerunner
             stream.CopyTo(fileStream);
             fileStream.Close();
 
-            player.Open(new Uri(tempFilePath));
-            player.Play();
+            this.musicPlayer.Open(new Uri(tempFilePath));
+            this.musicPlayer.Play();
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Gamescreen());
+            this.NavigationService.Navigate(new Gamescreen(musicPlayer));
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -53,7 +43,7 @@ namespace Minerunner
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Settings(player));
+            this.NavigationService.Navigate(new Settings(musicPlayer));
         }
 
         private void Highscores_Click(object sender, RoutedEventArgs e)

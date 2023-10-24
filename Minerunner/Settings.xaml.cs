@@ -23,13 +23,15 @@ namespace Minerunner
     /// </summary>
     public partial class Settings : Page
     {
-        private MediaPlayer player = new MediaPlayer();
+        private MediaPlayer musicPlayer = new MediaPlayer();
 
-        public Settings(MediaPlayer player = null)
+        public Settings(MediaPlayer musicPlayer = null)
         {
             InitializeComponent();
-            this.player = player;
-            double Volumeamount = player.Volume;
+
+            this.musicPlayer = musicPlayer;
+
+            double Volumeamount = musicPlayer.Volume;
             Volume.Value = Volumeamount;
         }
 
@@ -51,7 +53,7 @@ namespace Minerunner
         private void Volumeslider(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double Volumeamount = Volume.Value;
-            player.Volume = Volumeamount;
+            musicPlayer.Volume = Volumeamount;
         }
     }
 }
