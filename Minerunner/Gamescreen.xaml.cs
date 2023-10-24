@@ -121,7 +121,7 @@ namespace Minerunner
         {
             // Score
             score++;
-            scoreText.Text = "Score " + score.ToString();
+            scoreText.Text = "Score: " + score.ToString();
 
             if (crouch == true)
             {
