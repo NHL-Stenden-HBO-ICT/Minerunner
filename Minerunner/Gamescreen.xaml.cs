@@ -20,8 +20,13 @@ namespace Minerunner
         private DispatcherTimer spritesheetTimer = new DispatcherTimer();
         private Spritesheet playerSpriteWalk, playerSpriteCrouch;
         private bool jump, crouch, collision;
-        private double gravity = 0;
+
+        private double gravitySpeed = 0;
+        private double jumpSpeed = 0;
+
         private Floor floor;
+        private Obstacles obstacles;
+
         private double score = 0; // Onni score.
         
 
@@ -35,6 +40,8 @@ namespace Minerunner
             InitializeComponent();
 
             floor = new Floor(ChunkCanvas);
+            obstacles = new Obstacles(ObstacleCanvas);
+
             gameCanvas.Focus();
 
             // Load first sprite - needed to mitigate slow loading speed 
@@ -56,17 +63,18 @@ namespace Minerunner
         private void GameEngine(object? sender, EventArgs e)
         {
             floor.Scroll();
+            obstacles.Scroll();
 
             // Score - Dit negeren, verplaatst naar spritesheet.
             //score += 0.1;
             //scoreText.Text = Math.Round(score, 1).ToString();
             //scoreText.Text = score.ToString();
-            
-            // Gravity
-            Canvas.SetTop(player, Canvas.GetTop(player) + gravity);
-            gravity += 2;
 
-            // Collision
+            // Gravity
+            Canvas.SetTop(player, Canvas.GetTop(player) + gravitySpeed);
+            gravitySpeed += 0.1;
+
+            // Collision with floor
             foreach (var x in ChunkCanvas.Children.OfType<Rectangle>())
             {
             
@@ -82,13 +90,13 @@ namespace Minerunner
                     if (playerHitBox.IntersectsWith(platformHitBox))
                     {
                         // Collision
-                        gravity = 0;
+                        gravitySpeed = 0;
                         collision = true;
                         Canvas.SetTop(player, platformTop - player.Height);
 
                         // Initial jump
                         if (jump == true)
-                            Canvas.SetTop(player, Canvas.GetTop(player) - 2);
+                            Canvas.SetTop(player, Canvas.GetTop(player) - 0.1);
 
                     } else
                     {
@@ -96,14 +104,32 @@ namespace Minerunner
                         if (jump == true)
                         {
                             collision = false;
-                            Canvas.SetTop(player, Canvas.GetTop(player) - 2);
+                            Canvas.SetTop(player, Canvas.GetTop(player) - jumpSpeed);
+                            jumpSpeed += 0.1;
 
-                            if (Canvas.GetTop(player) <= platformTop - player.Height - 100)
+                            if (Canvas.GetTop(player) <= platformTop - player.Height - 200)
+                            {
                                 jump = false;
+                                jumpSpeed = 0;
+                            }
+                                
                         }
                     }
                 }
-            } 
+            }
+            
+            // Collision with objects
+            foreach (var x in ObstacleCanvas.Children.OfType<Rectangle>())
+            {
+
+                Rect playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
+                Rect obstacleHitBox = new Rect(Canvas.GetLeft(ObstacleCanvas) + Canvas.GetLeft(x) + 25, Canvas.GetTop(x) + 830, 50, 50);
+
+                // Game over trigger
+                if (playerHitBox.IntersectsWith(obstacleHitBox) && (Canvas.GetTop(player) + 100) > (Canvas.GetTop(x) + 830))
+                    // TO GAME OVER SCREEN
+
+            }
         }
 
         // Movement trigger, on key press down
@@ -142,6 +168,7 @@ namespace Minerunner
                 player.Fill = playerBrush;
             }
         }
+
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Titlescreen());
