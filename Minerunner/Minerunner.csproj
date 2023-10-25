@@ -16,6 +16,7 @@
     <None Remove="assets\music\Thirteen-C418.mp3" />
     <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
     <None Remove="assets\spritesheets\stalker\creeper_spritesheet.png" />
+    <None Remove="assets\textures\cobblestone.jpg" />
     <None Remove="assets\textures\desert_cactus.png" />
     <None Remove="assets\textures\desert_sand.jpg" />
     <None Remove="assets\textures\desert_sandstone.jpg" />
@@ -39,6 +40,7 @@
     <None Remove="assets\spritesheets\player\steve_spritesheet.png" />
     <Resource Include="assets\spritesheets\player\steve_spritesheet.png" />
     <Resource Include="assets\spritesheets\stalker\creeper_spritesheet.png" />
+    <Resource Include="assets\textures\cobblestone.jpg" />
     <Resource Include="assets\textures\desert_cactus.png" />
     <Resource Include="assets\textures\desert_sand.jpg" />
     <Resource Include="assets\textures\desert_sandstone.jpg" />
