@@ -8,7 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
 
-    <Grid Background="White">
+    <Page.Background>
+        <ImageBrush ImageSource="pack://application:,,,/assets/textures/dirt.jpg" Stretch="Uniform" Viewport="0,0,100,100" ViewportUnits="Absolute" TileMode="Tile"/>
+    </Page.Background>
+
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
@@ -21,51 +25,55 @@
         <Grid Grid.Column="1">
             <Label x:Name="Highscore_titel_Copy7"
             Content="Highscores"   
-            FontSize="36"  
+            FontSize="60"  
                HorizontalContentAlignment="Center"
-            FontWeight="Bold"/>
+            FontWeight="Bold" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
+                <Label.Effect>
+                    <DropShadowEffect Color="Black" Direction="275" BlurRadius="5"/>
+                </Label.Effect>
+            </Label>
             <Label x:Name="Highscore_titel_Copy"
             Content="1: Dylan 3756"   
             HorizontalContentAlignment="Center"
             FontSize="20"  
-            FontWeight="Bold" Margin="0,50,0,0"/>
+            FontWeight="Bold" Margin="0,50,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
 
             <Label x:Name="Highscore_titel_Copy2"
             Content="2: Freark 3254"   
             HorizontalContentAlignment="Center"
             FontSize="20"  
-            FontWeight="Bold" Margin="0,70,0,0"/>
+            FontWeight="Bold" Margin="0,70,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
 
             <Label x:Name="Highscore_titel_Copy3"
             Content="3: Max 2974"   
             HorizontalContentAlignment="Center"
             FontSize="20"  
-            FontWeight="Bold" Margin="0,90,0,0"/>
+            FontWeight="Bold" Margin="0,90,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
             
             <Label x:Name="Highscore_titel_Copy4"
             Content="4: Onurcan 2213"   
             HorizontalContentAlignment="Center"
             FontSize="20"  
-            FontWeight="Bold" Margin="0,110,0,0"/>
+            FontWeight="Bold" Margin="0,110,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
 
             <Label x:Name="Highscore_titel_Copy5"
             Content="5: Lars 2117"   
             HorizontalContentAlignment="Center"
             FontSize="20"  
-            FontWeight="Bold" Margin="0,130,0,0"/>
+            FontWeight="Bold" Margin="0,130,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
 
             <Label x:Name="Highscore_titel_Copy6"
             Content="6: Eelke 1394"   
             HorizontalContentAlignment="Center"
             FontSize="20"  
-            FontWeight="Bold" Margin="0,150,0,0"/>
+            FontWeight="Bold" Margin="0,150,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
 
             <Label x:Name="Highscore_titel_Copy8"
             Content="Uw hoogste highscore: 3756"   
                HorizontalContentAlignment="Center"
-            FontSize="16" Margin="0,200,0,0"/>
+            FontSize="16" Margin="0,200,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White"/>
 
-            <Button Content="Terug" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" Height="55" Width="256" Click="Highscore_Terug"/>
+            <Button Content="Terug" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" Height="75" Width="300" Background="#8b00ff" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Click="Highscore_Terug"/>
 
         </Grid>
     </Grid>

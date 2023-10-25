@@ -7,6 +7,7 @@ using System.Windows.Media;
 using CircularBuffer;
 using System.Linq;
 using System;
+using System.Windows.Media.Imaging;
 
 class Obstacles
 {
@@ -82,7 +83,7 @@ class Obstacles
                 {
                     var rect = new Rectangle();
                     rect.Width = rect.Height = 50;
-                    rect.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 125));
+                    rect.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/assets/textures/cobblestone.jpg")));
 
                     canvas.Children.Add(rect);
 
