@@ -78,6 +78,8 @@ namespace Minerunner
                 fallSpeed = fallSpeed * acceleration;
             }
 
+            isFalling = true;
+
             // Jumping
             if (isJumping)
             {
@@ -86,7 +88,6 @@ namespace Minerunner
                 // Set new height
                 Canvas.SetTop(player, Canvas.GetTop(player) - jumpSpeed);
                 jumpSpeed = jumpSpeed / acceleration;
-                var test = jumpSpeed / acceleration;
 
                 // Disable jump && enable gravity on max. height
                 if (jumpSpeed <= 0.2)
@@ -116,6 +117,7 @@ namespace Minerunner
                     {
                         // Gravity
                         isFalling = false;
+                        fallSpeed = 1;
 
                         // Collision
                         collision = true;
@@ -136,12 +138,34 @@ namespace Minerunner
                 Rect playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
                 Rect obstacleHitBox = new Rect(Canvas.GetLeft(ObstacleCanvas) + Canvas.GetLeft(x) + 25, Canvas.GetTop(x) + 830, 50, 50);
 
-                // Game over trigger
-                if (playerHitBox.IntersectsWith(obstacleHitBox) && (Canvas.GetTop(player) + 100) > (Canvas.GetTop(x) + 830))
+                if (playerHitBox.IntersectsWith(obstacleHitBox))
                 {
-                    // TO GAME OVER SCREEN
-                }
 
+                    // Check if player hit the side, or is walking on top
+                    // -7 && +10 are margings needed to compensate for WPFs slow speed
+                    if (playerHitBox.Bottom - 7 > obstacleHitBox.Top && playerHitBox.Right < obstacleHitBox.Left + 10)
+                    {
+                        // GAME OVER Trigger
+                        gameTimer.Stop();
+                        spritesheetTimer.Stop();
+
+                    } else
+                    {
+                        // Player walking ontop of obstacle
+
+                        // Gravity
+                        isFalling = false;
+                        fallSpeed = 1;
+
+                        // Collision
+                        collision = true;
+                        Canvas.SetTop(player, obstacleHitBox.Top - 100);
+
+                        // Initial jump
+                        if (isJumping == true && collision == true)
+                            Canvas.SetTop(player, Canvas.GetTop(player) - 0.1);
+                    }
+                }
 
             }
         }

@@ -6,17 +6,33 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using CircularBuffer;
 using System.Linq;
+using System;
 
 class Obstacles
 {
     // Vars
     private Canvas canvas;
-    private int[,] obstacles =
+    private int[,,] obstacles =
     {
-        {0, 0, 0, 0,},
-        {0, 0, 0, 0,},
-        {0, 0, 0, 0,},
-        {0, 1, 0, 0,}
+        {
+            {0, 0, 0, 0,},
+            {0, 0, 0, 0,},
+            {0, 0, 1, 1,},
+            {1, 0, 0, 0,}
+        },
+        {
+            {0, 0, 0, 0,},
+            {0, 0, 0, 0,},
+            {0, 0, 0, 0,},
+            {1, 1, 1, 1,}
+        },
+        {
+            {0, 0, 0, 0,},
+            {0, 0, 0, 0,},
+            {0, 0, 0, 0,},
+            {1, 0, 0, 0,}
+        }
+
     };
 
     private int blockSize = 50;
@@ -55,11 +71,14 @@ class Obstacles
         int x = 1920;
         int y = 0;
 
-        for (int i = 0;  i < obstacles.GetLength(0); i++)
+        Random r = new Random();
+        int rInt = r.Next(0, obstacles.GetLength(0));
+
+        for (int i = 0; i < obstacles.GetLength(1); i++)
         {
-            for (int j = 0; j < obstacles.GetLength(1); j++)
+            for (int j = 0; j < obstacles.GetLength(2); j++)
             {
-                if (obstacles[i,j] != 0)
+                if (obstacles[rInt,i,j] != 0)
                 {
                     var rect = new Rectangle();
                     rect.Width = rect.Height = 50;
