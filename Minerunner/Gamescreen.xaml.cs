@@ -19,10 +19,11 @@ namespace Minerunner
         private DispatcherTimer gameTimer = new DispatcherTimer();
         private DispatcherTimer spritesheetTimer = new DispatcherTimer();
         private Spritesheet playerSpriteWalk, playerSpriteCrouch;
-        private bool jump, crouch, collision;
+        private bool isJumping, isFalling = true, crouch, collision;
 
-        private double gravitySpeed = 0;
-        private double jumpSpeed = 0;
+        private double acceleration = 1.3;
+        private double fallSpeed = 1;
+        private double jumpSpeed = 20;
 
         private Floor floor;
         private Obstacles obstacles;
@@ -71,8 +72,32 @@ namespace Minerunner
             //scoreText.Text = score.ToString();
 
             // Gravity
-            Canvas.SetTop(player, Canvas.GetTop(player) + gravitySpeed);
-            gravitySpeed += 0.1;
+            if (isFalling)
+            {
+                Canvas.SetTop(player, Canvas.GetTop(player) + fallSpeed);
+                fallSpeed = fallSpeed * acceleration;
+            }
+
+            // Jumping
+            if (isJumping)
+            {
+                collision = false;
+
+                // Set new height
+                Canvas.SetTop(player, Canvas.GetTop(player) - jumpSpeed);
+                jumpSpeed = jumpSpeed / acceleration;
+                var test = jumpSpeed / acceleration;
+
+                // Disable jump && enable gravity on max. height
+                if (jumpSpeed <= 0.2)
+                {
+                    isJumping = false;
+                    isFalling = true;
+
+                    jumpSpeed = 20;
+                    fallSpeed = 1;
+                }
+            }
 
             // Collision with floor
             foreach (var x in ChunkCanvas.Children.OfType<Rectangle>())
@@ -89,31 +114,17 @@ namespace Minerunner
 
                     if (playerHitBox.IntersectsWith(platformHitBox))
                     {
+                        // Gravity
+                        isFalling = false;
+
                         // Collision
-                        gravitySpeed = 0;
                         collision = true;
                         Canvas.SetTop(player, platformTop - player.Height);
 
                         // Initial jump
-                        if (jump == true)
+                        if (isJumping == true && collision == true)
                             Canvas.SetTop(player, Canvas.GetTop(player) - 0.1);
 
-                    } else
-                    {
-                        // Player jump
-                        if (jump == true)
-                        {
-                            collision = false;
-                            Canvas.SetTop(player, Canvas.GetTop(player) - jumpSpeed);
-                            jumpSpeed += 0.1;
-
-                            if (Canvas.GetTop(player) <= platformTop - player.Height - 200)
-                            {
-                                jump = false;
-                                jumpSpeed = 0;
-                            }
-                                
-                        }
                     }
                 }
             }
@@ -127,26 +138,12 @@ namespace Minerunner
 
                 // Game over trigger
                 if (playerHitBox.IntersectsWith(obstacleHitBox) && (Canvas.GetTop(player) + 100) > (Canvas.GetTop(x) + 830))
+                {
                     // TO GAME OVER SCREEN
+                }
+
 
             }
-        }
-
-        // Movement trigger, on key press down
-        private void OnKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Space && collision == true)
-                jump = true;
-
-            if (e.Key == Key.LeftCtrl)
-                crouch = true;
-        }
-
-        // Movement trigger, on key press up
-        private void OnKeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.LeftCtrl)
-                crouch = false;
         }
 
         // Timer to handle spritesheets
@@ -161,12 +158,30 @@ namespace Minerunner
                 playerBrush.ImageSource = playerSpriteCrouch.Load();
 
                 player.Fill = playerBrush;
-            } else
+            }
+            else
             {
                 playerBrush.ImageSource = playerSpriteWalk.Load();
 
                 player.Fill = playerBrush;
             }
+        }
+
+        // Movement trigger, on key press down
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space && collision == true)
+                isJumping = true;
+
+            if (e.Key == Key.LeftCtrl)
+                crouch = true;
+        }
+
+        // Movement trigger, on key press up
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.LeftCtrl)
+                crouch = false;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
