@@ -23,6 +23,8 @@
         <Grid Grid.Column="2">
             <Button Name="Back" Content="Back"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="Back_Click"></Button>
         </Grid>
+
+        <!--Timer + gereed + stop knop-->
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40*"/>
@@ -35,8 +37,8 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
             <TextBox Name="TBCountDown" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="00:00:00" ></TextBox>
-            <Button Name="Gereed" Grid.Column="0" Grid.Row="1" Content="Gereed" HorizontalAlignment="Right" VerticalAlignment="Center"  Click="Gereed"/>
-            <Button Name="Stop" Grid.Column="2" Grid.Row="1" Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Center" Click="stop"/>
+            <Button Name="Gereed" Content="Gereed" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Click="Gereed_Click"/>
+            <Button Name="Stop" Content="Stop" Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="Stop_Click"/>
         </Grid>
         <TextBlock Grid.Column="1" Name="Title" Text=" Timer" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,5,0,0" />
 

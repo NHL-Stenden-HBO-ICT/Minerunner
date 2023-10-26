@@ -56,13 +56,13 @@ namespace Minerunner
             this.NavigationService.GoBack();
         }
 
-        private void stop(object sender, RoutedEventArgs e)
+        private void Stop_Click(object sender, RoutedEventArgs e)
         {
             Timer.Stop();
             time = 0;
         }
 
-        private void Gereed(object sender, RoutedEventArgs e)
+        private void Gereed_Click(object sender, RoutedEventArgs e)
         {
             starttime = true;
         }
