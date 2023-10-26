@@ -25,7 +25,7 @@ namespace Minerunner
     {
 
         MediaPlayer player = new MediaPlayer();
-        Uri uri = new Uri("assets/music/Thirteen-C418.mp3", UriKind.Relative);
+        Uri uri = new Uri("assets/music/Sweden-C418.mp3", UriKind.Relative);
 
         public Settings()
         {
