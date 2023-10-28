@@ -10,11 +10,23 @@
 
 
     <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Label Name="gameover_TXT" Content="Game over" FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" ></Label>
-        <Label Name="Highscore_TXT" Content="Highscore: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,113,0,0" ></Label>
-        <Button Name="Replay_BTN" Content="Replay" FontSize="15" HorizontalAlignment="Center" Width="150" Height="50" FontWeight="Bold" Click="Replay_BTN_Click"></Button>
-        <Button Name="Backtomainmenu_BTN" Content="Back to main menu" FontSize="15" HorizontalAlignment="Center"  Width="150" Height="50" Margin="0,290,0,110" FontWeight="Bold" Click="Backtomainmenu_BTN_Click"></Button>
+
+
+        <Label Name="gameover_TXT" Grid.Column="1" Grid.Row="0" Content="Game over" FontSize="70" ></Label>
+        <Label Name="Highscore_TXT" Grid.Column="1" Grid.Row="1" Content="Highscore: " FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"></Label>
+        <Button Name="Replay_BTN" Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Content="Replay" FontSize="15" Click="Replay_BTN_Click"></Button>
+        <Button Name="Backtomainmenu_BTN"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Back to main menu" FontSize="15" Click="Backtomainmenu_BTN_Click"></Button>
 
     </Grid>
 </Page>
