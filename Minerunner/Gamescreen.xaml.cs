@@ -148,6 +148,7 @@ namespace Minerunner
                         // GAME OVER Trigger
                         gameTimer.Stop();
                         spritesheetTimer.Stop();
+                        this.NavigationService.Navigate(new GameOverPage());
 
                     } else
                     {
