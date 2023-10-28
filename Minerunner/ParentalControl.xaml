@@ -1,0 +1,77 @@
+﻿<Page x:Class="Minerunner.ParentalControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Minerunner"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ParentalControl">
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition />
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--Title-->
+        <Grid Grid.Column="1">
+            <TextBlock Name="Title" Text=" Parental Control" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBlock>
+        </Grid>
+
+        <!--Back-->
+        <Grid Grid.Column="2">
+            <Button Name="Back" Content="Back"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="Back_Click"></Button>
+        </Grid>
+
+        <!--Pin code-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--Password-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <PasswordBox Grid.Column="1" Grid.Row="2" Name="PWB_1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MaxLength="4" PasswordChanged="PasswordChangedHandler"/>
+                
+            </Grid>
+
+
+            <!--Gereed en Backspace-->
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="Gereed" Content="Gereed" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,10,0" Click="Gereed_Click"/>
+                <Button Name="Backspace" Content="Backspace" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0"/>
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</Page>
