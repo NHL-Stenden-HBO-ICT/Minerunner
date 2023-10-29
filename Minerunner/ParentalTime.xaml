@@ -14,14 +14,14 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <!--Back-->
         <Grid Grid.Column="2">
@@ -44,15 +44,29 @@
             <Button Name="Gereed" Content="Gereed" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Click="Gereed_Click" Height="75" Width="300" Background="#00ff0f" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
             <Button Name="Stop" Content="Stop" Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="Stop_Click" Height="75" Width="300" Background="#ff7200" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
         </Grid>
-        <TextBlock Grid.Column="1" Name="Title" Text=" Timer" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,5,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Black" Direction="275" BlurRadius="5"/>
-            </TextBlock.Effect>
-        </TextBlock>
+            <TextBlock Grid.Column="1" Name="Title" Text=" Timer" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,5,0,0" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" Direction="275" BlurRadius="5"/>
+                </TextBlock.Effect>
+            </TextBlock>
 
+            <!-- Time input fields -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+            <TextBox Name="TBHours" FontWeight="Bold" Text="00" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBlock Text=":" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBox Name="TBMinutes" FontWeight="Bold" Text="00" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBlock Text=":" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBox Name="TBSeconds" FontWeight="Bold" Text="00" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </StackPanel>
 
+        <!-- Gereed and Stop buttons -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <Button Name="Gereed" Content="Gereed" FontWeight="Bold" Width="100" Height="40" Click="Gereed_Click" Margin="10"/>
+            <Button Name="Stop" Content="Stop" FontWeight="Bold" Width="100" Height="40" Click="Stop_Click" Margin="10"/>
+        </StackPanel>
+
+        <!-- Title -->
+        <Label Grid.Column="1" Name="Title_time" FontSize="40" Content="Timer" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
-
-
 </Page>
 
