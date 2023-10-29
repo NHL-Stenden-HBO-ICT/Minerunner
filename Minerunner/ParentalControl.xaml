@@ -23,8 +23,8 @@
         </Grid.ColumnDefinitions>
 
         <!--Title-->
-        <Grid Grid.Column="1">
-            <TextBlock Name="Title" Text=" Parental Control" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ></TextBlock>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <TextBlock Name="Title" Text=" Parental Control" FontSize="60" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" ></TextBlock>
         </Grid>
 
         <!--Back-->
@@ -56,19 +56,19 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <PasswordBox Grid.Column="1" Grid.Row="2" Name="PWB_1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MaxLength="4" PasswordChanged="PasswordChangedHandler"/>
+                <PasswordBox Grid.Column="1" Grid.Row="2" Name="PWB_1" Height="30" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MaxLength="4" PasswordChanged="PasswordChangedHandler"/>
                 
             </Grid>
 
 
             <!--Gereed en Backspace-->
-            <Grid Grid.Row="4">
+            <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"/>
                     <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="Gereed" Content="Gereed" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,10,0" Click="Gereed_Click"/>
-                <Button Name="Backspace" Content="Backspace" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0"/>
+                <Button Name="Gereed" Content="Gereed" FontWeight="Bold" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0,5,10,0" Click="Gereed_Click"/>
+                <Button Name="Backspace" Content="Backspace" FontWeight="Bold" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0" Click="Backspace_Click"/>
             </Grid>
 
 

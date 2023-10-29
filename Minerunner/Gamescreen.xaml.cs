@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Minerunner
 {
@@ -148,6 +149,8 @@ namespace Minerunner
                         // GAME OVER Trigger
                         gameTimer.Stop();
                         spritesheetTimer.Stop();
+                        GameOverPage gameOverPage = new GameOverPage(score);
+                        NavigationService.Navigate(gameOverPage);
 
                     } else
                     {
