@@ -64,7 +64,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <PasswordBox Grid.Column="1" Grid.Row="2" Name="PWB_1" Height="30" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MaxLength="4" PasswordChanged="PasswordChangedHandler"/>
+                <PasswordBox Grid.Column="1" Grid.Row="2" Name="PWB_1" Height="30" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MaxLength="4" Password="Password"/>
                 
             </Grid>
 
@@ -73,13 +73,9 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
-                <Button Name="Gereed" Content="Gereed" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,10,0" Click="Gereed_Click" Height="75" Width="300" Background="#00ff0f" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
-                    <Button Name="Backspace" Content="Backspace" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0" Height="75" Width="300" Background="#ff7200" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
+                <Button Name="Gereed" Content="Gereed" VerticalAlignment="Top"  HorizontalAlignment="Center" Margin="0,5,10,0" Click="Gereed_Click" Height="75" Width="300" Background="#00ff0f" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
             </Grid>
-
-
         </Grid>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,12 @@ namespace Minerunner
     /// </summary>
     public partial class ParentalControl : Page
     {
-        string pincode = "";
-        string[] testing = new string[4];
-        int Maxpin = 0;
-
-        
-
+        private string Pincodefile = "pincode.txt"; // Naam van het bestand
+        private string Pincode;
         public ParentalControl()
         {
+
+            LadenPincode(); // Probeer de pincode te laden wanneer het scherm wordt geopend
             InitializeComponent();
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
@@ -50,6 +49,17 @@ namespace Minerunner
 
         }
 
+        private void LadenPincode()
+        {
+            if (File.Exists(Pincodefile))
+            {
+                Pincode = File.ReadAllText(Pincodefile);
+            }
+            else
+            {
+                Pincode = null; // Er is nog geen pincode opgeslagen
+            }
+        }
         private void Backspace_Click(object sender, RoutedEventArgs e)
         {
 
@@ -57,25 +67,41 @@ namespace Minerunner
 
         private void Gereed_Click(object sender, RoutedEventArgs e)
         {
-            if (Maxpin == 4)
-            {
-                this.NavigationService.Navigate(new ParentalTime());
-            }
+            string ingevoerdePincode = PWB_1.Password;
 
+            if (ingevoerdePincode.Length == 4)
+            {
+                if (Pincode == null)
+                {
+                    // Er is geen eerder opgeslagen pincode, sla de ingevoerde pincode op
+                    Pincode = ingevoerdePincode;
+                    File.WriteAllText(Pincode, ingevoerdePincode);
+                    MessageBox.Show("Pincode ingesteld", "Succes");
+                    this.NavigationService.Navigate(new ParentalTime());
+                }
+                else
+                {
+                    // Controleer of de ingevoerde pincode overeenkomt met de opgeslagen pincode
+                    if (ingevoerdePincode == Pincode)
+                    {
+                        MessageBox.Show("Pincode correct", "Succes");
+                        this.NavigationService.Navigate(new ParentalTime());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Onjuiste pincode", "Fout");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Pincode moet 4 tekens bevatten", "Fout");
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
-        }
-
-        void PasswordChangedHandler(Object sender, RoutedEventArgs args)
-        {
-            // Increment a counter each time the event fires.
-                string Input = PWB_1.Password.ToString();
-                pincode = Input;
-                Maxpin++;
-                 
         }
     }
 }
