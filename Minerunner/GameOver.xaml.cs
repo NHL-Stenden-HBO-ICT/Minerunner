@@ -17,6 +17,7 @@ namespace Minerunner
 {
     public partial class GameOverPage : Page
     {
+
         private double score;
         public GameOverPage(double score)
         {
@@ -53,4 +54,5 @@ namespace Minerunner
             this.NavigationService.Navigate(new Gamescreen());
         }
     }  
+
 }

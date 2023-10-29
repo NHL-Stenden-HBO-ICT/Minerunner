@@ -21,6 +21,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Name="gameover_TXT" Content="Game Over" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
             <Label Name="Highscore_TXT" Content="Highscore:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
@@ -30,5 +31,6 @@
             <Button Name="Replay_BTN" Content="Replay" FontSize="20" Height="40" Width="150" Click="Replay_BTN_Click"></Button>
             <Button Name="Backtomainmenu_BTN" Content="Back to Main Menu" FontSize="20" Height="40" Width="200" Click="Backtomainmenu_BTN_Click" Margin="0,10,0,0"></Button>
         </StackPanel>
+
     </Grid>
 </Page>
