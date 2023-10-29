@@ -37,7 +37,7 @@
 
         <!--Back-->
         <Grid Grid.Column="2">
-            <Button Content="X" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" Width="20" Click="Back_Click"/>
+            <Button Name="Back" Content="X" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" Width="20" Click="Back_Click"/>
         </Grid>
 
         <!--Pin code-->

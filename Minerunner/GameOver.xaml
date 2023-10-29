@@ -8,8 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="gameover">
 
+    <Page.Background>
+        <ImageBrush ImageSource="pack://application:,,,/assets/textures/dirt.jpg" Stretch="Uniform" Viewport="0,0,100,100" ViewportUnits="Absolute" TileMode="Tile"/>
+    </Page.Background>
 
-    <Grid Background="White">
+
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -23,13 +27,21 @@
 
 
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Name="gameover_TXT" Content="Game Over" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <Label Name="Highscore_TXT" Content="Highscore:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
+            <Label Name="gameover_TXT" Content="Game Over" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
+                <Label.Effect>
+                    <DropShadowEffect Color="Black" Direction="275" BlurRadius="5"/>
+                </Label.Effect>
+            </Label>
+            <Label Name="Highscore_TXT" Content="Highscore:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
+                <Label.Effect>
+                    <DropShadowEffect Color="Black" Direction="275" BlurRadius="5"/>
+                </Label.Effect>
+            </Label>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Name="Replay_BTN" Content="Replay" FontSize="20" Height="40" Width="150" Click="Replay_BTN_Click"></Button>
-            <Button Name="Backtomainmenu_BTN" Content="Back to Main Menu" FontSize="20" Height="40" Width="200" Click="Backtomainmenu_BTN_Click" Margin="0,10,0,0"></Button>
+            <Button Name="Replay_BTN" Content="Replay" Height="75" Width="300" Click="Replay_BTN_Click" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Background="#00ff0f"></Button>
+            <Button Name="Backtomainmenu_BTN" Content="Back to Main Menu" Height="75" Width="300" Click="Backtomainmenu_BTN_Click" Margin="0,10,0,0" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Background="#ff7200"></Button>
         </StackPanel>
 
     </Grid>
