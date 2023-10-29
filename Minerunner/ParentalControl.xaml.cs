@@ -41,9 +41,6 @@ namespace Minerunner
             Back.Height = 30 * sizeMultiplier; // Pas de hoogte van de knoppen aan
             Back.Width = 50 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            Backspace.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Backspace.Width = 100 * sizeMultiplier; // Pas de breedte van de knoppen aan
-
             PWB_1.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
             PWB_1.Width = 200 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
@@ -59,10 +56,6 @@ namespace Minerunner
             {
                 Pincode = null; // Er is nog geen pincode opgeslagen
             }
-        }
-        private void Backspace_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Gereed_Click(object sender, RoutedEventArgs e)
