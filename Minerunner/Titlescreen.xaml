@@ -7,8 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Titlescreen"
-      KeepAlive="True">
-    
+      KeepAlive="True">  
     <Page.Background>
         <ImageBrush ImageSource="pack://application:,,,/assets/textures/dirt.jpg" Stretch="Uniform" Viewport="0,0,100,100" ViewportUnits="Absolute" TileMode="Tile"/>
     </Page.Background>

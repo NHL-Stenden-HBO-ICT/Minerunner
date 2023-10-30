@@ -28,11 +28,11 @@ namespace Minerunner
 
         private Floor floor;
         private Obstacles obstacles;
+        private MediaPlayer musicPlayer = new MediaPlayer();
 
         private double score = 0; // Onni score.
-        
 
-        public Gamescreen()
+        public Gamescreen(MediaPlayer musicPlayer = null)
         {
             // Load spritesheets
             playerSpriteWalk = new Spritesheet("/assets/spritesheets/player/steve_spritesheet.png", 4, 1, 2000, 3000);
@@ -40,6 +40,9 @@ namespace Minerunner
 
             // Init gamescreen
             InitializeComponent();
+
+            // MusicPlayer
+            this.musicPlayer = musicPlayer;
 
             floor = new Floor(ChunkCanvas);
             obstacles = new Obstacles(ObstacleCanvas);
@@ -217,7 +220,7 @@ namespace Minerunner
         }
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Settings());
+            this.NavigationService.Navigate(new Settings(musicPlayer));
         }
     }
 }
