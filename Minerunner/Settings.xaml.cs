@@ -24,14 +24,12 @@ namespace Minerunner
     public partial class Settings : Page
     {
         MediaPlayer player = new MediaPlayer();
-        Uri uri = new Uri("assets/music/Sweden-C418.mp3", UriKind.Relative);
-
 
         public Settings(MediaPlayer musicPlayer = null)
         {
             InitializeComponent();
 
-            this.musicPlayer = musicPlayer;
+            this.player = musicPlayer;
 
             double Volumeamount = musicPlayer.Volume;
             Volume.Value = Volumeamount;
@@ -55,7 +53,7 @@ namespace Minerunner
         private void Volumeslider(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double Volumeamount = Volume.Value;
-            musicPlayer.Volume = Volumeamount;
+            player.Volume = Volumeamount;
         }
     }
 }
