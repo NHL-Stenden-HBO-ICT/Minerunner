@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CircularBuffer;
 
@@ -36,15 +32,13 @@ namespace Minerunner
             _scrollSpeed = scrollSpeed;
             _blockSize = blockSize;
 
-            _totalBlocks = (int)1920 / blockSize + 1;
+            _totalBlocks = (int)1920 / blockSize + 2;
             _currentBlocksBuffer = new CircularBuffer<BiomeType>(_totalBlocks);
 
             for (int i = 0; i < _totalBlocks; i++)
             {
                 var rect = new Rectangle();
                 rect.Width = rect.Height = blockSize;
-                rect.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                rect.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 rect.Tag = "platform";
 
                 _canvas.Children.Add(rect);
@@ -60,20 +54,20 @@ namespace Minerunner
         {
             for (int i = 0; i < _totalBlocks; i++)
             {
-                var color = Color.FromRgb(0, 0, 0);
+                Uri imageURL = new Uri("pack://application:,,,/assets/textures/dirt.jpg");
 
                 switch (_currentBlocksBuffer[i])
                 {
                     case BiomeType.Plains:
-                        color = Color.FromRgb(0, 255, 0);
+                        imageURL = new Uri("pack://application:,,,/assets/textures/grassblock.jpg");
                         break;
 
                     case BiomeType.Desert:
-                        color = Color.FromRgb(225, 255, 0);
+                        imageURL = new Uri("pack://application:,,,/assets/textures/desert_sandstone.jpg");
                         break;
                 }
 
-                ((Rectangle)_canvas.Children[i]).Fill = new SolidColorBrush(color);
+                ((Rectangle)_canvas.Children[i]).Fill = new ImageBrush(new BitmapImage(imageURL));
             }
         }
 

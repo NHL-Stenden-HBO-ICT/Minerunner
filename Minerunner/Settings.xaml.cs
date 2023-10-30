@@ -23,7 +23,9 @@ namespace Minerunner
     /// </summary>
     public partial class Settings : Page
     {
-        private MediaPlayer musicPlayer = new MediaPlayer();
+        MediaPlayer player = new MediaPlayer();
+        Uri uri = new Uri("assets/music/Sweden-C418.mp3", UriKind.Relative);
+
 
         public Settings(MediaPlayer musicPlayer = null)
         {
