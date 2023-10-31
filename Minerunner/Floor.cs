@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -12,7 +13,9 @@ namespace Minerunner
         public enum BiomeType
         {
             Plains,
+            Taiga,
             Desert,
+            Mushroom,
         }
 
         public BiomeType CurrentBiome { get; private set; }
@@ -26,8 +29,12 @@ namespace Minerunner
 
         private CircularBuffer<BiomeType> _currentBlocksBuffer;
 
+        public static Floor Instance;
+
         public Floor(Canvas canvas, int scrollSpeed = 5, int blockSize = 50)
         {
+            Instance = this;
+
             _canvas = canvas;
             _scrollSpeed = scrollSpeed;
             _blockSize = blockSize;
@@ -62,8 +69,16 @@ namespace Minerunner
                         imageURL = new Uri("pack://application:,,,/assets/textures/grassblock.jpg");
                         break;
 
+                    case BiomeType.Taiga:
+                        imageURL = new Uri("pack://application:,,,/assets/textures/taiga_grassblock.jpg");
+                        break;
+
                     case BiomeType.Desert:
-                        imageURL = new Uri("pack://application:,,,/assets/textures/desert_sandstone.jpg");
+                        imageURL = new Uri("pack://application:,,,/assets/textures/desert_sand.jpg");
+                        break;                    
+                    
+                    case BiomeType.Mushroom:
+                        imageURL = new Uri("pack://application:,,,/assets/textures/mushroom_mycelium.jpg");
                         break;
                 }
 

@@ -8,6 +8,8 @@ using CircularBuffer;
 using System.Linq;
 using System;
 using System.Windows.Media.Imaging;
+using static Minerunner.Floor;
+using Minerunner;
 
 class Obstacles
 {
@@ -32,8 +34,7 @@ class Obstacles
             {0, 0, 0, 0,},
             {0, 0, 0, 0,},
             {1, 0, 0, 0,}
-        }
-
+        },
     };
 
     private int blockSize = 50;
@@ -46,6 +47,8 @@ class Obstacles
     private int blockSpacingCurrentSpace = 0;
     private int obstaclesOnScreen = 0;
 
+    private int obstacleAmount = 3;
+
     // Constructor
     public Obstacles(Canvas Canvas, string filename = "obstacles")
     {
@@ -55,8 +58,10 @@ class Obstacles
         // Load obstacles
         //loadFile(filename);
 
-        LoadObstacle();
-
+        for (int i = 0; i < obstacleAmount; i++)
+        {
+            LoadObstacle(i * 450);
+        }
     }
     /*
     // Load obstacles from JSON file
@@ -67,9 +72,9 @@ class Obstacles
         this.obstacles = JsonSerializer.Deserialize<string>(file);
     }
     */
-    private void LoadObstacle()
+    private void LoadObstacle(int offset)
     {
-        int x = 1920;
+        int x = 1920 + offset;
         int y = 0;
 
         Random r = new Random();
@@ -83,7 +88,29 @@ class Obstacles
                 {
                     var rect = new Rectangle();
                     rect.Width = rect.Height = 50;
-                    rect.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/assets/textures/cobblestone.jpg")));
+
+                    Uri imageURL = new Uri("pack://application:,,,/assets/textures/cobblestone.jpg");
+
+                    switch (Floor.Instance.CurrentBiome)
+                    {
+                        case BiomeType.Plains:
+                            imageURL = new Uri("pack://application:,,,/assets/textures/cobblestone.jpg");
+                            break;
+
+                        case BiomeType.Taiga:
+                            imageURL = new Uri("pack://application:,,,/assets/textures/snow_snow.jpg");
+                            break;
+
+                        case BiomeType.Desert:
+                            imageURL = new Uri("pack://application:,,,/assets/textures/desert_sandstone.jpg");
+                            break;
+
+                        case BiomeType.Mushroom:
+                            imageURL = new Uri("pack://application:,,,/assets/textures/dirt.jpg");
+                            break;
+                    }
+
+                    rect.Fill = new ImageBrush(new BitmapImage(imageURL));
 
                     canvas.Children.Add(rect);
 
@@ -94,7 +121,7 @@ class Obstacles
                 x += 50;
             }
 
-            x = 1920;
+            x = 1920 + offset;
             y += 50;
         }
     }
@@ -106,12 +133,15 @@ class Obstacles
         Canvas.SetLeft(canvas, Canvas.GetLeft(canvas) - 4.5);
         
         // Reset
-        if (Canvas.GetLeft(canvas) < -2120)
+        if (Canvas.GetLeft(canvas) < -2120 - obstacleAmount * 450)
         {
             canvas.Children.Clear();
             Canvas.SetLeft(canvas, 0);
 
-            LoadObstacle();
+            for(int i = 0; i < obstacleAmount; i++) 
+            {
+                LoadObstacle(i * 450);
+            }
         }
     }
 
