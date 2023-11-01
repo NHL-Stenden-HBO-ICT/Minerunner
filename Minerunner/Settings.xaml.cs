@@ -29,6 +29,28 @@ namespace Minerunner
         {
             InitializeComponent();
 
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+            double sizeMultiplier = Math.Min(screenWidth / 1920, screenHeight / 1080); // Stel de basisresolutie in op 1920x1080
+
+            Instellingentekst.FontSize = 70 * sizeMultiplier; // Pas de lettergrootte van de tekst "Instellingen" aan
+            Volumelabel.FontSize = 20 * sizeMultiplier;
+            Speeltijdknop.FontSize = 20 * sizeMultiplier;
+
+            Rectangle1.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Rectangle1.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
+
+            Volume.Height = 25 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Volume.Width = 250 * sizeMultiplier; // Pas de breedte van de knoppen aan
+
+            Speeltijdknop.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Speeltijdknop.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
+
+            Backknop.Height = 20 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Backknop.Width = 20 * sizeMultiplier; // Pas de breedte van de knoppen aan
+
+
             this.player = musicPlayer;
 
             double Volumeamount = musicPlayer.Volume;

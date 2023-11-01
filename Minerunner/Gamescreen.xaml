@@ -15,8 +15,8 @@
         <Canvas x:Name="ChunkCanvas" Background="Orange" Canvas.Left="0" Canvas.Bottom="0" Width="1920" Height="50"/>
         <Canvas x:Name="ObstacleCanvas" Canvas.Left="0" Canvas.Top="830" Width="2120" Height="200"/>
 
-        <Button Content="X" Background="Red" Foreground="White" Height="20" Width="20" Click="Exit_Click" HorizontalAlignment="Left" Canvas.Left="1890" Canvas.Top="10" VerticalAlignment="Center" Panel.ZIndex="5"/>
-        <Button Content="I" Background="#FF00FF0F" Foreground="White" Height="20" Width="20" Click="Settings_Click" HorizontalAlignment="Left" Canvas.Left="1865" Canvas.Top="10" VerticalAlignment="Center" Panel.ZIndex="5"/>
+        <Button Name="XKNP" Content="X" Background="Red" Foreground="White" Height="20" Width="20" Click="Exit_Click" HorizontalAlignment="Left" Canvas.Left="1890" Canvas.Top="10" VerticalAlignment="Center" Panel.ZIndex="5"/>
+        <Button Name="IKNP" Content="I" Background="#FF00FF0F" Foreground="White" Height="20" Width="20" Click="Settings_Click" HorizontalAlignment="Left" Canvas.Left="1865" Canvas.Top="10" VerticalAlignment="Center" Panel.ZIndex="5"/>
         
         <TextBlock x:Name="scoreText" Text="Score: O" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
    </Canvas>

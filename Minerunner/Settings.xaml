@@ -12,31 +12,34 @@
     </Page.Background>
 
     <Grid>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
 
-        <Label Content="INSTELLINGEN" Grid.Row="1" Grid.Column="1" FontSize="60" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
+        <Label Content="INSTELLINGEN" Name="Instellingentekst" Grid.Row="1" Grid.Column="1" FontSize="60" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Foreground="White">
             <Label.Effect>
                 <DropShadowEffect Color="Black" Direction="275" BlurRadius="5"/>
             </Label.Effect>
         </Label>
 
-        <Rectangle Grid.Row="2" Grid.Column="1" Height="75" Width="400" Fill="#00c0ff" Margin="0,0,100,0" />
-        <Label Content="VOLUME" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold" Margin="85,0,0,0"/>
-        <Slider Grid.Row="2" Grid.Column="1" Height="25" Width="250" Minimum="0.0" Maximum="1.0" Value="0.8" x:Name="Volume" ValueChanged="Volumeslider"/>
-        
-        <Button Content="SPEELTIJD" Grid.Row="3" Grid.Column="1" Height="75" Width="300" Background="#8b00ff" Click="Speeltijd_Click" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
-        <Button Content="X" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" Width="20" Click="Exit_Click"/>
+        <Rectangle Name="Rectangle1" Grid.Row="3" Grid.Column="1" Height="75" Width="300" Fill="#00c0ff" VerticalAlignment="Center" />
+        <Label Name="Volumelabel" Content="VOLUME" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
+        <Slider Name="Volume" Grid.Row="3" Grid.Column="1" Height="25" Width="250" Minimum="0.0" Maximum="1.0" Value="0.8" VerticalAlignment="Top" ValueChanged="Volumeslider" Margin="10,38,6,0" />
+
+        <Button Name="Speeltijdknop" Content="SPEELTIJD" Grid.Row="5" Grid.Column="1" Height="75" Width="300" VerticalAlignment="Top" Background="#8b00ff" Click="Speeltijd_Click" FontWeight="Bold" FontSize="20" FontFamily="pack://application:,,,/assets/fonts/#Baloo Bhai 2 SemiBold"/>
+        <Button Name="Backknop" Content="X" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" Width="20" Click="Exit_Click"/>
     </Grid>
+
 </Page>

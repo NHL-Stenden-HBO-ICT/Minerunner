@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.IO;
 using System.Windows.Navigation;
 using System.Net;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Minerunner
 {
@@ -19,6 +20,32 @@ namespace Minerunner
         public Titlescreen()
         {
             InitializeComponent();
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+            double sizeMultiplier = Math.Min(screenWidth / 1920, screenHeight / 1080); // Stel de basisresolutie in op 1920x1080
+
+            Titleminerunner.FontSize = 70 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            StartKNP.FontSize = 20 * sizeMultiplier;
+            HighscoreKNP.FontSize = 20 * sizeMultiplier;
+            InstellingenKNP.FontSize = 20 * sizeMultiplier;
+
+
+
+            IntroBackground.Height = 1080 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            IntroBackground.Width = 1920 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            IntroImage.Height = 500 * sizeMultiplier;
+            IntroImage.Width = 500 * sizeMultiplier;
+
+            StartKNP.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            StartKNP.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            HighscoreKNP.Height = 75 * sizeMultiplier;
+            HighscoreKNP.Width = 300 * sizeMultiplier;
+            InstellingenKNP.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            InstellingenKNP.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            
+            xKNP.Height = 20 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            xKNP.Width = 20 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
             // Only load MusicPlayer once
             if (App.Loaded == false)
