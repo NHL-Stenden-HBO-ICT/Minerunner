@@ -29,14 +29,16 @@ namespace Minerunner
 
             double sizeMultiplier = Math.Min(screenWidth / 1920, screenHeight / 1080); // Stel de basisresolutie in op 1920x1080
 
-            gameover_TXT.FontSize = 50 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
-            Highscore_TXT.FontSize = 20 * sizeMultiplier; // Pas de lettergrootte van de tekst "Highscore" aan
+            gameover_TXT.FontSize = 70 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Highscore_TXT.FontSize = 30 * sizeMultiplier; // Pas de lettergrootte van de tekst "Highscore" aan
+            Replay_BTN.FontSize = 20 * sizeMultiplier;
+            Backtomainmenu_BTN.FontSize = 20 * sizeMultiplier;
 
-            Replay_BTN.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Replay_BTN.Width = 200 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Replay_BTN.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Replay_BTN.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            Backtomainmenu_BTN.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Backtomainmenu_BTN.Width = 200 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Backtomainmenu_BTN.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Backtomainmenu_BTN.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
             Highscore_TXT.Content = "Score: " + Convert.ToString(score);
 

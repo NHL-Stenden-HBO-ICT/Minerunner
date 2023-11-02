@@ -32,25 +32,32 @@ namespace Minerunner
 
             double sizeMultiplier = Math.Min(screenWidth / 1920, screenHeight / 1080); // Stel de basisresolutie in op 1920x1080
 
-            Title_time.FontSize = 60 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Title_time.FontSize = 80 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Gereed.FontSize = 20 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Stop.FontSize = 20 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            TBHours.FontSize = 12 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            TBMinutes.FontSize = 12 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            TBSeconds.FontSize = 12 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Dubbelepunt1.FontSize = 24 * sizeMultiplier;
+            Dubbelepunt2.FontSize = 24 * sizeMultiplier;
 
-            Gereed.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Gereed.Width = 100 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Gereed.Height = 60 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Gereed.Width = 200 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            Stop.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Stop.Width = 100 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Stop.Height = 60 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Stop.Width = 200 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            Back.Height = 30 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Back.Width = 50 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Back.Height = 20 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Back.Width = 20 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            TBHours.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            TBHours.Width = 40 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            TBHours.Height = 50 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            TBHours.Width = 50 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            TBMinutes.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            TBMinutes.Width = 40 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            TBMinutes.Height = 50 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            TBMinutes.Width = 50 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            TBSeconds.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            TBSeconds.Width = 40 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            TBSeconds.Height = 50 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            TBSeconds.Width = 50 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
             Gereed.Click += (sender, e) =>
             {

@@ -33,15 +33,17 @@ namespace Minerunner
 
             double sizeMultiplier = Math.Min(screenWidth / 1920, screenHeight / 1080); // Stel de basisresolutie in op 1920x1080
 
-            Title.FontSize = 60 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Title.FontSize = 70 * sizeMultiplier; // Pas de lettergrootte van de tekst "Game Over" aan
+            Gereed.FontSize = 20 * sizeMultiplier;
+            PWB_1.FontSize = 15 * sizeMultiplier;
 
-            Gereed.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Gereed.Width = 100 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Gereed.Height = 75 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Gereed.Width = 300 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            Back.Height = 30 * sizeMultiplier; // Pas de hoogte van de knoppen aan
-            Back.Width = 50 * sizeMultiplier; // Pas de breedte van de knoppen aan
+            Back.Height = 20 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            Back.Width = 20 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
-            PWB_1.Height = 40 * sizeMultiplier; // Pas de hoogte van de knoppen aan
+            PWB_1.Height = 50 * sizeMultiplier; // Pas de hoogte van de knoppen aan
             PWB_1.Width = 200 * sizeMultiplier; // Pas de breedte van de knoppen aan
 
         }
